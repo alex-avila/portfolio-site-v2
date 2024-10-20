@@ -35,7 +35,7 @@ async function createServer(
 
         const appHtml = await render(url);
 
-        const html = template.replace(`<!--ssr-outlet-->`, appHtml);
+        const html = template.replace(`<!--app-html-->`, appHtml);
 
         ctx.body = html;
       } catch (e) {
