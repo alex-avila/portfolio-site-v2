@@ -2,7 +2,9 @@
   "name": "portfolio-site-v2",
   "private": true,
   "version": "0.0.0",
+  "description": "Alex Avila's website",
   "type": "module",
+  "author": "Alex Avila <alex.avila.09@outlook.com>",
   "scripts": {
     "dev": "node server",
     "build": "pnpm run build:typescript && pnpm run build:client && pnpm run build:server",
