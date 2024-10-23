@@ -25,8 +25,8 @@ import {
 } from "react-icons/si";
 
 interface Skills {
-  category: String;
-  skills: Array<{ name: String; icon?: React.ReactElement }>;
+  category: string;
+  skills: Array<{ name: string; icon?: React.ReactElement }>;
 }
 
 const skills: Skills[] = [
