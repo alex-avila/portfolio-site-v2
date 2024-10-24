@@ -67,6 +67,23 @@ function Navigation() {
     }, [sectionRefs]);
   }
 
+  const scrollIntoView = (evt: React.PointerEvent<HTMLAnchorElement>) => {
+    evt.preventDefault();
+
+    const sectionId = (evt.target as HTMLAnchorElement)
+      .getAttribute("href")
+      ?.slice(1);
+
+    if (!sectionId) return;
+
+    // TODO: add actual type
+    const sectionRef = sectionRefs?.find((ref) => ref.current.id === sectionId);
+
+    if (!sectionRef?.current) return;
+
+    sectionRef.current.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <header className="sticky inset-x-0 top-0 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start">
       <nav className="relative mx-auto mt-4 flex w-max max-w-2xl items-center justify-between rounded-[2rem] border border-gray-200 bg-white py-2.5 md:px-4 md:py-0 dark:border-neutral-700 dark:bg-neutral-900">
@@ -77,6 +94,7 @@ function Navigation() {
                 key={link.id}
                 className="border-b-2 border-transparent px-4 py-0.5 text-gray-500 hover:text-gray-800 focus:outline-none aria-selected:border-gray-800 aria-selected:font-medium aria-selected:text-gray-800 md:px-1 md:py-3 dark:text-neutral-400 dark:hover:text-neutral-200 dark:aria-selected:border-neutral-200 dark:aria-selected:text-neutral-200"
                 href={`#${link.id}`}
+                onClick={scrollIntoView}
                 aria-selected={activeSections[0] === link.id}
               >
                 {link.name}
