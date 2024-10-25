@@ -1,23 +1,25 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 
-interface SectionsContextProps {
-  sectionRefs?: Array<any>;
-  registerSection?: (ref: any) => void;
-  unregisterSection?: (ref: any) => void;
+type SectionRef = React.RefObject<HTMLDivElement>;
+interface ISectionsContext {
+  sectionRefs: SectionRef[];
+  registerSection: (ref: SectionRef) => void;
+  unregisterSection: (ref: SectionRef) => void;
 }
 
-export const SectionsContext = createContext<SectionsContextProps>({});
+export const SectionsContext = createContext<ISectionsContext | null>(null);
 
-// TODO: improve the types
 export function SectionsProvider({ children }: { children?: React.ReactNode }) {
-  const [sectionRefs, setSectionRefs] = useState<any>([]);
+  const [sectionRefs, setSectionRefs] = useState<SectionRef[]>([]);
 
-  const registerSection = (ref: any) => {
-    setSectionRefs((prev: any[]) => [...prev, ref]);
+  const registerSection = (ref: SectionRef) => {
+    setSectionRefs((prev: SectionRef[]) => [...prev, ref]);
   };
 
-  const unregisterSection = (ref: any) => {
-    setSectionRefs((prev: any[]) => prev.filter((prevRef) => prevRef !== ref));
+  const unregisterSection = (ref: SectionRef) => {
+    setSectionRefs((prev: SectionRef[]) =>
+      prev.filter((prevRef) => prevRef !== ref),
+    );
   };
 
   return (
@@ -30,18 +32,24 @@ export function SectionsProvider({ children }: { children?: React.ReactNode }) {
 }
 
 export function Section({
-  children,
   id,
+  children,
 }: {
-  children?: React.ReactNode;
   id: string;
+  children?: React.ReactNode;
 }) {
-  const ref = useRef(null);
+  const sectionsContext = useContext(SectionsContext) as ISectionsContext;
 
-  const { registerSection = () => {}, unregisterSection = () => {} } =
-    useContext(SectionsContext);
+  if (!sectionsContext) {
+    throw new Error("<Section> has to be used within <SectionsProvider>");
+  }
+
+  const { registerSection, unregisterSection } = sectionsContext;
+
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!ref.current) throw Error("ref not assigned");
     registerSection(ref);
 
     return () => {
@@ -50,7 +58,6 @@ export function Section({
   }, []);
 
   // TODO: set scroll-margin-top to the actual header height which should probably come from a css variable
-
   return (
     <div id={id} ref={ref} className="scroll-mt-16">
       {children}
