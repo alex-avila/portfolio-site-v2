@@ -6,11 +6,13 @@ const links = [
     label: "alex.avila.09@outlook.com",
     href: "mailto:alex.avila.09@outlook.com",
     icon: <CiMail />,
+    iconLabel: "email",
   },
   {
     label: "@alex-avilx",
     href: "https://www.linkedin.com/in/alex-avilx/",
     icon: <CiLinkedin />,
+    iconLabel: "LinkedIn",
   },
 ];
 
@@ -40,6 +42,7 @@ function About() {
           {links.map((link) => (
             <li key={link.href} className="flex items-center gap-x-2.5">
               {/* TODO: add a 'copy' button so visitors can copy the email address instead */}
+              <span className="sr-only">{link.iconLabel}</span>
               <IconContext.Provider
                 value={{ className: "size-3.5 shrink-0", size: "24" }}
               >
