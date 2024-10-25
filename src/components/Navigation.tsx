@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { SectionsContext } from "./SectionsContext";
 
 const links = [
@@ -14,10 +14,6 @@ const links = [
     id: "experience",
     name: "Experience",
   },
-  {
-    id: "projects",
-    name: "Projects",
-  },
 ];
 
 function Navigation() {
@@ -31,8 +27,11 @@ function Navigation() {
   const { sectionRefs } = sectionsContext;
 
   const [activeSections, setActiveSections] = useState<string[]>([]);
+  const [headerHeight, setHeaderHeight] = useState<number>(64);
+  const navigationRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    const rootMargin = `${headerHeight}px 0px 0px`;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -60,7 +59,7 @@ function Navigation() {
           }
         });
       },
-      { threshold: 0.5, rootMargin: "-48px 0px 0px" },
+      { threshold: 0.5, rootMargin },
     );
 
     sectionRefs.forEach((ref) => {
@@ -72,7 +71,30 @@ function Navigation() {
     return () => {
       observer.disconnect();
     };
-  }, [sectionRefs]);
+  }, [sectionRefs, headerHeight]);
+
+  useEffect(() => {
+    if (!navigationRef.current) {
+      throw new Error("navigationRef not assinged");
+    }
+
+    const updateHeaderHeight = () => {
+      const { bottom } = (
+        navigationRef.current as HTMLElement
+      ).getBoundingClientRect();
+
+      setHeaderHeight(bottom);
+
+      const root = document.querySelector(":root") as HTMLElement;
+      root.style.setProperty("--header-height", `${(bottom + 12) / 16}rem`);
+    };
+
+    updateHeaderHeight();
+    // TODO: add throttle or debounce
+    window.addEventListener("resize", () => {
+      updateHeaderHeight();
+    });
+  }, []);
 
   const scrollIntoView = (evt: React.PointerEvent<HTMLAnchorElement>) => {
     evt.preventDefault();
@@ -93,7 +115,10 @@ function Navigation() {
   };
 
   return (
-    <header className="sticky inset-x-0 top-0 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start">
+    <header
+      ref={navigationRef}
+      className="sticky inset-x-0 top-0 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start"
+    >
       <nav className="relative mx-auto mt-4 flex w-max max-w-2xl items-center justify-between rounded-[2rem] border border-gray-200 bg-white py-2.5 md:px-4 md:py-0 dark:border-neutral-700 dark:bg-neutral-900">
         <div className="hs-collapse grow basis-full overflow-hidden transition-all duration-300">
           <div className="flex items-center justify-end gap-2">

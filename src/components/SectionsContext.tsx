@@ -64,9 +64,8 @@ export function Section({
     };
   }, [registerSection, unregisterSection]);
 
-  // TODO: set scroll-margin-top to the actual header height which should probably come from a css variable
   return (
-    <div id={id} ref={ref} className="scroll-mt-16">
+    <div id={id} ref={ref} className="scroll-mt-[var(--header-height,4.75rem)]">
       {children}
     </div>
   );
