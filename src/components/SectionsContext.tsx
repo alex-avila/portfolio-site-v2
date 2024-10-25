@@ -45,7 +45,7 @@ export function Section({
   id: string;
   children?: React.ReactNode;
 }) {
-  const sectionsContext = useContext(SectionsContext) as ISectionsContext;
+  const sectionsContext = useContext(SectionsContext);
 
   if (!sectionsContext) {
     throw new Error("<Section> has to be used within <SectionsProvider>");

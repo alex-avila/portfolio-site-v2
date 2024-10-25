@@ -22,50 +22,57 @@ const links = [
 
 function Navigation() {
   // TODO: make navigation actually work, w/smooth scroll, transitions, accessibility
-  const { sectionRefs } = useContext(SectionsContext);
+  const sectionsContext = useContext(SectionsContext);
+
+  if (!sectionsContext) {
+    throw new Error("<Navigation> has to be used within <SectionsProvider>");
+  }
+
+  const { sectionRefs } = sectionsContext;
 
   const [activeSections, setActiveSections] = useState<string[]>([]);
 
-  if (!import.meta.env.SSR) {
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            console.log(entry.target, entry.isIntersecting);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log(entry.target, entry.isIntersecting);
 
-            if (entry.isIntersecting) {
-              setActiveSections((prev) =>
-                [...prev, entry.target.getAttribute("id") || ""]
-                  .filter(Boolean)
-                  .sort((a, b) => {
-                    const idsInOrder =
-                      sectionRefs?.map((ref) => ref.current.id) || [];
+          if (entry.isIntersecting) {
+            setActiveSections((prev) =>
+              [...prev, entry.target.getAttribute("id") || ""]
+                .filter(Boolean)
+                .sort((a, b) => {
+                  const idsInOrder =
+                    sectionRefs.map((ref) => ref.current?.id).filter(Boolean) ||
+                    [];
 
-                    return idsInOrder.indexOf(a) - idsInOrder.indexOf(b);
-                  }),
-              );
-            } else {
-              setActiveSections((prev) =>
-                prev.filter(
-                  (prevSection) =>
-                    prevSection !== entry.target.getAttribute("id"),
-                ),
-              );
-            }
-          });
-        },
-        { threshold: 0.5, rootMargin: "-48px 0px 0px" },
-      );
+                  return idsInOrder.indexOf(a) - idsInOrder.indexOf(b);
+                }),
+            );
+          } else {
+            setActiveSections((prev) =>
+              prev.filter(
+                (prevSection) =>
+                  prevSection !== entry.target.getAttribute("id"),
+              ),
+            );
+          }
+        });
+      },
+      { threshold: 0.5, rootMargin: "-48px 0px 0px" },
+    );
 
-      sectionRefs?.forEach((ref) => {
+    sectionRefs.forEach((ref) => {
+      if (ref.current) {
         observer.observe(ref.current);
-      });
+      }
+    });
 
-      return () => {
-        observer.disconnect();
-      };
-    }, [sectionRefs]);
-  }
+    return () => {
+      observer.disconnect();
+    };
+  }, [sectionRefs]);
 
   const scrollIntoView = (evt: React.PointerEvent<HTMLAnchorElement>) => {
     evt.preventDefault();
@@ -76,8 +83,9 @@ function Navigation() {
 
     if (!sectionId) return;
 
-    // TODO: add actual type
-    const sectionRef = sectionRefs?.find((ref) => ref.current.id === sectionId);
+    const sectionRef = sectionRefs?.find(
+      (ref) => ref.current?.id === sectionId,
+    );
 
     if (!sectionRef?.current) return;
 
