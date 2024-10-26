@@ -1,6 +1,7 @@
 import { IconContext, IconType } from "react-icons";
 import {
   SiJavascript as JavaScriptIcon,
+  SiTypescript as TypeScriptIcon,
   SiVuedotjs as VueIcon,
   SiNuxtdotjs as NuxtIcon,
   SiReact as ReactIcon,
@@ -33,6 +34,10 @@ const skills: Skills[] = [
       {
         name: "JavaScript",
         icon: withIconProvider(JavaScriptIcon),
+      },
+      {
+        name: "TypeScript",
+        icon: withIconProvider(TypeScriptIcon),
       },
       {
         name: "Vue",

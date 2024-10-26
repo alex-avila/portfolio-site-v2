@@ -1,3 +1,3 @@
 import useProminentSectionReducer from "./useProminentSectionReducer";
 
-export { useProminentSectionReducer }
+export { useProminentSectionReducer };

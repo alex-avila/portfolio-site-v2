@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { SectionsContext } from "./SectionsContext";
 import { useProminentSectionReducer } from "../hooks";
-import { throttle } from '../utils'
+import { throttle } from "../utils";
 
 const generateThresholds = (countBy: number) => {
   const thresholds = [];
@@ -30,11 +30,11 @@ function Navigation({ sections }: INavigationProps) {
 
   useEffect(() => {
     const rootMargin = `-${headerHeight}px 0px 0px`;
-    const idsInOrder = sectionRefs.map((ref) => ref.current?.id).filter((id) => typeof id === "string");
+    const idsInOrder = sectionRefs.map(ref => ref.current?.id).filter(id => typeof id === "string");
 
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
+      entries => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
             dispatch({ type: "updated", sectionIdsInOrder: idsInOrder, sectionEntry: entry });
           } else {
@@ -48,7 +48,7 @@ function Navigation({ sections }: INavigationProps) {
       },
     );
 
-    sectionRefs.forEach((ref) => {
+    sectionRefs.forEach(ref => {
       if (ref.current) {
         observer.observe(ref.current);
       }
@@ -78,8 +78,8 @@ function Navigation({ sections }: INavigationProps) {
     window.addEventListener("resize", updateHeaderHeightThrottled);
 
     return () => {
-      window.removeEventListener('resize', updateHeaderHeightThrottled)
-    }
+      window.removeEventListener("resize", updateHeaderHeightThrottled);
+    };
   }, []);
 
   const scrollIntoView = (evt: React.MouseEvent<HTMLAnchorElement>, index: number) => {
@@ -94,7 +94,7 @@ function Navigation({ sections }: INavigationProps) {
 
     if (!sectionId) return;
 
-    const sectionRef = sectionRefs?.find((ref) => ref.current?.id === sectionId);
+    const sectionRef = sectionRefs?.find(ref => ref.current?.id === sectionId);
 
     if (!sectionRef?.current) return;
 
@@ -114,7 +114,7 @@ function Navigation({ sections }: INavigationProps) {
                 key={section.id}
                 className="border-b-2 border-transparent px-4 py-0.5 text-gray-500 hover:text-gray-800 focus:outline-none aria-selected:border-gray-800 aria-selected:font-medium aria-selected:text-gray-800 md:px-1 md:py-3 dark:text-neutral-400 dark:hover:text-neutral-200 dark:aria-selected:border-neutral-200 dark:aria-selected:text-neutral-200"
                 href={`#${section.id}`}
-                onClick={(evt) => scrollIntoView(evt, index)}
+                onClick={evt => scrollIntoView(evt, index)}
                 aria-selected={sectionsState.prominentSection === section.id}
               >
                 {section.name}

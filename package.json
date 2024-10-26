@@ -13,6 +13,7 @@
     "build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
     "generate": "pnpm run build:typescript && vite build --outDir dist/static && pnpm run build:server && node prerender",
     "serve": "NODE_ENV=production node server",
+    "format": "prettier . --write",
     "lint": "eslint .",
     "preview": "vite preview"
   },

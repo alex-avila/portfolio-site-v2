@@ -7,11 +7,9 @@ import koaServe from "koa-static";
 import { createServer as createViteServer } from "vite";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const toAbsolute = (p) => path.resolve(__dirname, p);
+const toAbsolute = p => path.resolve(__dirname, p);
 
-async function createServer(
-  isProduction = process.env.NODE_ENV === "production",
-) {
+async function createServer(isProduction = process.env.NODE_ENV === "production") {
   // TODO: maybe use something like h3 or nitro or some of those new ones i've heard about
   const app = new Koa();
 

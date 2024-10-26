@@ -43,28 +43,19 @@ const experiences: ExperienceItem[] = [
 function Experience() {
   return (
     <div>
-      <h2 className="mb-5 font-medium text-gray-800 dark:text-neutral-200">
-        Experience
-      </h2>
+      <h2 className="mb-5 font-medium text-gray-800 dark:text-neutral-200">Experience</h2>
 
       <div>
-        {experiences.map((experience) => {
+        {experiences.map(experience => {
           const title = `${experience.title}${experience.company ? ` at ${experience.company}` : ""}`;
           return (
             <div key={experience.title} className="group relative flex gap-x-5">
               <div className="relative after:absolute after:bottom-2 after:start-3 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 group-last:after:hidden after:dark:bg-neutral-700">
                 <div className="relative z-10 flex size-6 items-center justify-center">
                   {typeof experience.icon === "string" ? (
-                    <img
-                      className="size-6 shrink-0"
-                      src={experience.icon}
-                      width="32"
-                      height="32"
-                    />
+                    <img className="size-6 shrink-0" src={experience.icon} width="32" height="32" />
                   ) : (
-                    <IconContext.Provider
-                      value={{ className: "size-6 shrink-0", size: "32" }}
-                    >
+                    <IconContext.Provider value={{ className: "size-6 shrink-0", size: "32" }}>
                       {experience.icon}
                     </IconContext.Provider>
                   )}
@@ -77,23 +68,16 @@ function Experience() {
                 </h3>
 
                 {/* TODO: make sure to complete the tailwind set up and add the Inter font I think */}
-                <p className="text-sm font-semibold text-gray-800 dark:text-neutral-200">
-                  {title}
-                </p>
+                <p className="text-sm font-semibold text-gray-800 dark:text-neutral-200">{title}</p>
 
                 {experience.description && (
-                  <p className="mt-1 text-sm text-gray-800 dark:text-neutral-200">
-                    {experience.description}
-                  </p>
+                  <p className="mt-1 text-sm text-gray-800 dark:text-neutral-200">{experience.description}</p>
                 )}
 
                 {experience.highlights?.length && (
                   <ul className="ms-6 mt-3 list-disc space-y-1.5">
-                    {experience.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="ps-1 text-sm text-gray-600 dark:text-neutral-400"
-                      >
+                    {experience.highlights.map(highlight => (
+                      <li key={highlight} className="ps-1 text-sm text-gray-600 dark:text-neutral-400">
                         {highlight}
                       </li>
                     ))}

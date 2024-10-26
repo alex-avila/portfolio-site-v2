@@ -4,7 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const toAbsolute = (p) => path.resolve(__dirname, p);
+const toAbsolute = p => path.resolve(__dirname, p);
 
 // run build:client & build:server to get these files in dist
 const template = fs.readFileSync(toAbsolute("dist/static/index.html"), "utf-8");

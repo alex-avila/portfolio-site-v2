@@ -18,13 +18,11 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
       <div className="border-t border-gray-200 py-6 dark:border-neutral-700">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <p className="text-xs text-gray-600 dark:text-neutral-400">
-              © 2024 Alex Avila
-            </p>
+            <p className="text-xs text-gray-600 dark:text-neutral-400">© 2024 Alex Avila</p>
           </div>
 
           <ul className="flex flex-wrap items-center">
-            {links.map((link) => (
+            {links.map(link => (
               <div
                 key={link.label}
                 className="relative inline-block pe-4 text-xs before:absolute before:end-1.5 before:top-1/2 before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-gray-400 last:pe-0 last-of-type:before:hidden dark:text-neutral-500 dark:before:bg-neutral-600"
@@ -46,9 +44,7 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
                 onClick={() => onToggleTheme()}
               >
                 <span className="sr-only">Dark</span>
-                <IconContext.Provider
-                  value={{ className: "size-4 shrink-0", size: "32" }}
-                >
+                <IconContext.Provider value={{ className: "size-4 shrink-0", size: "32" }}>
                   <CiCloudMoon />
                 </IconContext.Provider>
               </button>
@@ -58,9 +54,7 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
                 onClick={() => onToggleTheme()}
               >
                 <span className="sr-only">Light</span>
-                <IconContext.Provider
-                  value={{ className: "size-4 shrink-0", size: "32" }}
-                >
+                <IconContext.Provider value={{ className: "size-4 shrink-0", size: "32" }}>
                   <CiSun />
                 </IconContext.Provider>
               </button>

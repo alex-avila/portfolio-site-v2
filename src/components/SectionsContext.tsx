@@ -1,11 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useCallback,
-  useRef,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useCallback, useRef, useState } from "react";
 
 type SectionRef = React.RefObject<HTMLDivElement>;
 interface ISectionsContext {
@@ -24,27 +17,17 @@ export function SectionsProvider({ children }: { children?: React.ReactNode }) {
   }, []);
 
   const unregisterSection = useCallback((ref: SectionRef) => {
-    setSectionRefs((prev: SectionRef[]) =>
-      prev.filter((prevRef) => prevRef !== ref),
-    );
+    setSectionRefs((prev: SectionRef[]) => prev.filter(prevRef => prevRef !== ref));
   }, []);
 
   return (
-    <SectionsContext.Provider
-      value={{ sectionRefs, registerSection, unregisterSection }}
-    >
+    <SectionsContext.Provider value={{ sectionRefs, registerSection, unregisterSection }}>
       {children}
     </SectionsContext.Provider>
   );
 }
 
-export function Section({
-  id,
-  children,
-}: {
-  id: string;
-  children?: React.ReactNode;
-}) {
+export function Section({ id, children }: { id: string; children?: React.ReactNode }) {
   const sectionsContext = useContext(SectionsContext);
 
   if (!sectionsContext) {
