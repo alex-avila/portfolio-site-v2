@@ -43,7 +43,11 @@ const experiences: ExperienceItem[] = [
 function Experience() {
   return (
     <div>
-      <h2 className="mb-5 font-medium text-gray-800 dark:text-neutral-200">Experience</h2>
+      <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-gray-800 dark:text-neutral-200">
+        <span>Experience</span>
+        <span className="relative top-[1.5px] h-px w-full grow bg-gray-200 dark:bg-neutral-700" />
+        <span className="shrink-0 text-gray-200 dark:text-neutral-700">経験</span>
+      </h2>
 
       <div>
         {experiences.map(experience => {

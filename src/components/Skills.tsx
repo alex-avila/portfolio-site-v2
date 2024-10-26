@@ -95,7 +95,7 @@ const skills: Skills[] = [
     skills: [
       { name: "Nuxt", icon: withIconProvider(NuxtIcon) },
       {
-        name: "Shopify Development",
+        name: "Shopify Development (Liquid, Shopify APIs, etc.)",
         icon: withIconProvider(ShopifyIcon),
       },
     ],
@@ -152,7 +152,11 @@ function withIconProvider(IconComponent: IconType): React.ReactElement {
 function Skills() {
   return (
     <div>
-      <h2 className="mb-5 font-medium text-gray-800 dark:text-neutral-200">Skills</h2>
+      <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-gray-800 dark:text-neutral-200">
+        <span>Skills</span>
+        <span className="relative top-[1.5px] h-px w-full grow bg-gray-800/20 dark:bg-neutral-200/20" />
+        <span className="shrink-0 text-gray-200 dark:text-neutral-700">スキル</span>
+      </h2>
 
       <div className="space-y-3">
         {skills.map((_skills, i) => {
