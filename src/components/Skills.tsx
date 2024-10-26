@@ -1,7 +1,5 @@
 import { IconContext, IconType } from "react-icons";
 import {
-  SiHtml5 as HtmlIcon,
-  SiCss3 as CssIcon,
   SiJavascript as JavaScriptIcon,
   SiVuedotjs as VueIcon,
   SiNuxtdotjs as NuxtIcon,
@@ -34,24 +32,12 @@ const skills: Skills[] = [
     category: "Frontend",
     skills: [
       {
-        name: "HTML",
-        icon: withIconProvider(HtmlIcon),
-      },
-      {
-        name: "CSS",
-        icon: withIconProvider(CssIcon),
-      },
-      {
         name: "JavaScript",
         icon: withIconProvider(JavaScriptIcon),
       },
       {
         name: "Vue",
         icon: withIconProvider(VueIcon),
-      },
-      {
-        name: "Nuxt",
-        icon: withIconProvider(NuxtIcon),
       },
       {
         name: "React",
@@ -68,10 +54,6 @@ const skills: Skills[] = [
       {
         name: "Vite",
         icon: withIconProvider(ViteIcon),
-      },
-      {
-        name: "Shopify Development",
-        icon: withIconProvider(ShopifyIcon),
       },
       {
         name: "Alpine.js",
@@ -99,12 +81,18 @@ const skills: Skills[] = [
         icon: withIconProvider(NestJsIcon),
       },
       {
-        name: "PostgreSQL",
-        icon: withIconProvider(PostgreSqlIcon),
-      },
-      {
         name: "MongoDB",
         icon: withIconProvider(MongoDbIcon),
+      },
+    ],
+  },
+  {
+    category: "Fullstack",
+    skills: [
+      { name: "Nuxt", icon: withIconProvider(NuxtIcon) },
+      {
+        name: "Shopify Development",
+        icon: withIconProvider(ShopifyIcon),
       },
     ],
   },
