@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { SectionsContext } from "./SectionsContext";
-import { useProminentSectionReducer } from "./prominentSectionReducer";
+import { useProminentSectionReducer } from "../hooks";
+import { throttle } from '../utils'
 
 const generateThresholds = (countBy: number) => {
   const thresholds = [];
@@ -35,17 +36,9 @@ function Navigation({ sections }: INavigationProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            dispatch({
-              type: "updated",
-              sectionIdsInOrder: idsInOrder,
-              sectionEntry: entry,
-            });
+            dispatch({ type: "updated", sectionIdsInOrder: idsInOrder, sectionEntry: entry });
           } else {
-            dispatch({
-              type: "removed",
-              sectionEntry: entry,
-              sectionIdsInOrder: idsInOrder,
-            });
+            dispatch({ type: "removed", sectionEntry: entry });
           }
         });
       },
@@ -79,12 +72,14 @@ function Navigation({ sections }: INavigationProps) {
       const root = document.querySelector(":root") as HTMLElement;
       root.style.setProperty("--header-height", `${(bottom + 12) / 16}rem`);
     };
+    const updateHeaderHeightThrottled = throttle(updateHeaderHeight, 100);
 
     updateHeaderHeight();
-    // TODO: add throttle or debounce
-    window.addEventListener("resize", () => {
-      updateHeaderHeight();
-    });
+    window.addEventListener("resize", updateHeaderHeightThrottled);
+
+    return () => {
+      window.removeEventListener('resize', updateHeaderHeightThrottled)
+    }
   }, []);
 
   const scrollIntoView = (evt: React.MouseEvent<HTMLAnchorElement>, index: number) => {

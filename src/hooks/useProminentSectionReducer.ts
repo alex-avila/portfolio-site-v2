@@ -12,14 +12,16 @@ interface InitialState {
   prominentSection: string;
 }
 
-type ActionType = { type: "updated" | "removed"; sectionIdsInOrder: string[]; sectionEntry: IntersectionObserverEntry };
+type ActionType =
+  | { type: "updated"; sectionIdsInOrder: string[]; sectionEntry: IntersectionObserverEntry }
+  | { type: "removed"; sectionEntry: IntersectionObserverEntry };
 
-export const initialState: InitialState = {
+const initialState: InitialState = {
   sections: new Map(),
   prominentSection: "",
 };
 
-export function prominentSectionReducer(state: InitialState, action: ActionType): InitialState {
+function prominentSectionReducer(state: InitialState, action: ActionType): InitialState {
   const { type, sectionEntry } = action;
 
   const getSectionEntryId = (entry: IntersectionObserverEntry) => {
@@ -82,4 +84,6 @@ export function prominentSectionReducer(state: InitialState, action: ActionType)
   }
 }
 
-export const useProminentSectionReducer = () => useReducer(prominentSectionReducer, initialState);
+const useProminentSectionReducer = () => useReducer(prominentSectionReducer, initialState);
+
+export default useProminentSectionReducer;
