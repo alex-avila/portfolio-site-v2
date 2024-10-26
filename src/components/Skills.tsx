@@ -13,7 +13,6 @@ import {
   SiKoa as KoaIcon,
   SiExpress as ExpressIcon,
   SiNestjs as NestJsIcon,
-  SiPostgresql as PostgreSqlIcon,
   SiMongodb as MongoDbIcon,
   SiGit as GitIcon,
   SiGithubactions as GitHubActionsIcon,
@@ -139,9 +138,7 @@ const skills: Skills[] = [
 
 function withIconProvider(IconComponent: IconType): React.ReactElement {
   return (
-    <IconContext.Provider
-      value={{ className: "me-1 size-4 shrink-0", size: "24" }}
-    >
+    <IconContext.Provider value={{ className: "me-1 size-4 shrink-0", size: "24" }}>
       <IconComponent />
     </IconContext.Provider>
   );
@@ -150,21 +147,14 @@ function withIconProvider(IconComponent: IconType): React.ReactElement {
 function Skills() {
   return (
     <div>
-      <h2 className="mb-5 font-medium text-gray-800 dark:text-neutral-200">
-        Skills
-      </h2>
+      <h2 className="mb-5 font-medium text-gray-800 dark:text-neutral-200">Skills</h2>
 
       <div className="space-y-3">
         {skills.map((_skills, i) => {
           return (
-            <dl
-              key={_skills.category + String(i)}
-              className="flex flex-col gap-1 sm:flex-row"
-            >
+            <dl key={_skills.category + String(i)} className="flex flex-col gap-1 sm:flex-row">
               <dt className="min-w-32">
-                <span className="block text-sm text-gray-500 dark:text-neutral-500">
-                  {_skills.category}:
-                </span>
+                <span className="block text-sm text-gray-500 dark:text-neutral-500">{_skills.category}:</span>
               </dt>
               <dd>
                 <ul className="inline-flex flex-wrap gap-y-1">
