@@ -102,10 +102,7 @@ function Navigation({ sections }: INavigationProps) {
   };
 
   return (
-    <header
-      ref={navigationRef}
-      className="sticky inset-x-0 top-0 z-50 flex w-full flex-wrap text-sm md:flex-nowrap md:justify-start"
-    >
+    <header ref={navigationRef} className="sticky inset-x-0 top-0 z-50 flex w-full justify-start text-sm">
       <nav className="relative mx-auto mt-4 flex w-max max-w-2xl items-center justify-between rounded-[2rem] border border-gray-200 bg-white py-2.5 md:px-4 md:py-0 dark:border-neutral-700 dark:bg-neutral-900">
         <div className="hs-collapse grow basis-full overflow-hidden transition-all duration-300">
           <div className="flex items-center justify-end gap-2">

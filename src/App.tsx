@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navigation from "./components/Navigation";
 import About from "./components/About";
 import Skills from "./components/Skills";
@@ -6,6 +7,11 @@ import Footer from "./components/Footer";
 import { SectionsProvider, Section } from "./components/SectionsContext";
 
 function App() {
+  useEffect(() => {
+    const theme = localStorage?.getItem("theme") || "dark";
+    toggleTheme(theme === "light" ? theme : "dark");
+  }, []);
+
   return (
     <div className="mx-auto w-full max-w-2xl">
       <SectionsProvider>
@@ -49,6 +55,9 @@ const toggleTheme = (type?: "dark" | "light") => {
   } else {
     document.documentElement.classList.toggle("dark");
   }
+
+  const theme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+  localStorage?.setItem("theme", theme);
 };
 
 export default App;
