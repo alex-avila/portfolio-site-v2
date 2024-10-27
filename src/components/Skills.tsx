@@ -52,7 +52,7 @@ const skills: Skills[] = [
         icon: withIconProvider(TailwindCssIcon),
       },
       {
-        name: "Webpack",
+        name: "webpack",
         icon: withIconProvider(WebpackIcon),
       },
       {
@@ -108,9 +108,6 @@ const skills: Skills[] = [
         icon: withIconProvider(GitIcon),
       },
       {
-        name: "CI/CD",
-      },
-      {
         name: "GitHub Actions",
         icon: withIconProvider(GitHubActionsIcon),
       },
@@ -132,11 +129,10 @@ const skills: Skills[] = [
     category: "Soft Skills",
     skills: [
       { name: "Problem-solving" },
-      { name: "Attention to detail" },
-      { name: "Time management" },
-      { name: "Strong writing skills" },
-      { name: "Efficient communication" },
-      { name: "Ability to work remotely" },
+      { name: "attention to detail" },
+      { name: "strong writing skills" },
+      { name: "efficient communication" },
+      { name: "ability to work remotely" },
     ],
   },
 ];
@@ -152,10 +148,10 @@ function withIconProvider(IconComponent: IconType): React.ReactElement {
 function Skills() {
   return (
     <div>
-      <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-garden-content-loud dark:text-forest-content-loud">
+      <h2 className="text-garden-content-loud dark:text-forest-content-loud mb-5 flex items-center justify-between gap-x-3 font-medium">
         <span>Skills</span>
-        <span className="relative top-[1.5px] h-px w-full grow bg-garden-content-quiet-2 dark:bg-forest-content-quiet-2" />
-        <span className="shrink-0 text-garden-content-quiet-2 dark:text-forest-content-quiet-2">スキル</span>
+        <span className="bg-garden-content-quiet-2 dark:bg-forest-content-quiet-2 relative top-[1.5px] h-px w-full grow" />
+        <span className="text-garden-content-quiet-2 dark:text-forest-content-quiet-2 shrink-0">スキル</span>
       </h2>
 
       <div className="space-y-3">
@@ -163,14 +159,16 @@ function Skills() {
           return (
             <dl key={_skills.category + String(i)} className="flex flex-col gap-1 sm:flex-row">
               <dt className="min-w-32">
-                <span className="block text-sm text-garden-content-quiet dark:text-forest-content-quiet">{_skills.category}:</span>
+                <span className="text-garden-content-quiet dark:text-forest-content-quiet block text-sm">
+                  {_skills.category}:
+                </span>
               </dt>
               <dd>
                 <ul className="inline-flex flex-wrap gap-y-1">
                   {_skills.skills.map((skill, j) => (
                     <li
                       key={skill.name + String(j)}
-                      className="me-1 inline-flex items-center text-sm text-garden-content-loud dark:text-forest-content-loud [&:not(:last-child)]:after:content-[',']"
+                      className="text-garden-content-loud dark:text-forest-content-loud me-1 inline-flex items-center text-sm [&:not(:last-child)]:after:content-[',']"
                     >
                       {skill.icon ? skill.icon : null}
                       {skill.name}
