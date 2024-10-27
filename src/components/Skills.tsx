@@ -154,7 +154,7 @@ function Skills() {
     <div>
       <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-gray-800 dark:text-neutral-200">
         <span>Skills</span>
-        <span className="relative top-[1.5px] h-px w-full grow bg-gray-800/20 dark:bg-neutral-200/20" />
+        <span className="relative top-[1.5px] h-px w-full grow bg-gray-200 dark:bg-neutral-700" />
         <span className="shrink-0 text-gray-200 dark:text-neutral-700">スキル</span>
       </h2>
 
