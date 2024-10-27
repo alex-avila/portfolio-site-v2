@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { SectionsContext } from "./SectionsContext";
 import { useProminentSectionReducer } from "../hooks";
 import { throttle } from "../utils";
+import noiseSvg from "../assets/noise.svg";
 
 const generateThresholds = (countBy: number) => {
   const thresholds = [];
@@ -103,18 +104,31 @@ function Navigation({ sections }: INavigationProps) {
 
   return (
     <header ref={navigationRef} className="sticky inset-x-0 top-0 z-50 flex w-full justify-start text-sm">
-      <nav className="relative mx-auto mt-4 flex w-max max-w-2xl items-center justify-between rounded-[2rem] border border-gray-200 bg-white py-2.5 md:px-4 md:py-0 dark:border-neutral-700 dark:bg-neutral-900">
-        <div className="hs-collapse grow basis-full overflow-hidden transition-all duration-300">
-          <div className="flex items-center justify-end gap-2">
+      <nav className="relative mx-auto mt-4 flex w-max max-w-2xl items-center justify-between rounded-full border border-gray-200 px-4 dark:border-neutral-700">
+        {/* grainy, blurry background */}
+        <div className="absolute inset-0 size-full overflow-hidden rounded-full">
+          <div className="relative isolate size-full backdrop-blur">
+            <div
+              className="absolute inset-0 z-10 size-[200%] opacity-70 brightness-[125%] contrast-100 [mask-image:linear-gradient(to_top,black,transparent_200%)] dark:opacity-15 dark:brightness-100 dark:contrast-200"
+              style={{ backgroundImage: `url(${noiseSvg})` }}
+            />
+            <div className="absolute inset-0 size-full bg-white/50 mix-blend-multiply dark:bg-neutral-900/50" />
+          </div>
+        </div>
+
+        <div className="relative grow basis-full transition-all duration-300">
+          <div className="flex items-center justify-end">
             {sections.map((section, index) => (
               <a
                 key={section.id}
-                className="border-b-2 border-transparent px-4 py-0.5 text-gray-500 hover:text-gray-800 focus:outline-none aria-selected:border-gray-800 aria-selected:font-medium aria-selected:text-gray-800 md:px-1 md:py-3 dark:text-neutral-400 dark:hover:text-neutral-200 dark:aria-selected:border-neutral-200 dark:aria-selected:text-neutral-200"
+                className="group relative px-3 py-3 text-gray-500 hover:text-gray-800 focus:outline-none aria-selected:border-gray-800 aria-selected:font-medium aria-selected:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:aria-selected:text-neutral-200"
                 href={`#${section.id}`}
                 onClick={evt => scrollIntoView(evt, index)}
                 aria-selected={sectionsState.prominentSection === section.id}
               >
                 {section.name}
+                {/* TODO: remove the grayscale when you decide on an accent color */}
+                <span className="absolute inset-x-1 -bottom-px left-0 hidden h-px w-full bg-gradient-to-r from-green-600/0 via-green-600/40 to-green-600/0 grayscale group-aria-selected:block dark:from-green-400/0 dark:via-green-400/40 dark:to-green-400/0" />
               </a>
             ))}
           </div>
