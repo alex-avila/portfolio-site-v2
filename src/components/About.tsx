@@ -41,7 +41,7 @@ function About() {
                 {link.icon}
               </IconContext.Provider>
               <a
-                className="text-[13px] text-garden-content-quiet underline hover:text-garden-content-loud hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-content"
+                className="text-[13px] text-garden-content-quiet underline hover:text-garden-accent-2 hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-accent transition-[color,text-decoration-thickness]"
                 href={link.href}
                 target="_blank"
               >
