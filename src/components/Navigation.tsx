@@ -116,19 +116,18 @@ function Navigation({ sections }: INavigationProps) {
           </div>
         </div>
 
-        <div className="relative grow basis-full transition-all duration-300">
+        <div className="relative grow basis-full">
           <div className="flex items-center justify-end">
             {sections.map((section, index) => (
               <a
                 key={section.id}
-                className="group relative px-3 py-3 text-garden-content-quiet hover:text-garden-content-loud focus:outline-none aria-selected:border-garden-content-loud aria-selected:font-medium aria-selected:text-garden-content-loud dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-selected:text-forest-content-loud"
+                className="group relative px-3 py-3 text-garden-content-quiet hover:text-garden-content-loud focus:outline-none aria-selected:border-garden-accent-2 aria-selected:font-medium aria-selected:text-garden-accent-2 dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-selected:text-forest-accent transition-[color,_font-weight] duration-200"
                 href={`#${section.id}`}
                 onClick={evt => scrollIntoView(evt, index)}
                 aria-selected={sectionsState.prominentSection === section.id}
               >
                 {section.name}
-                {/* TODO: remove the grayscale when you decide on an accent color */}
-                <span className="absolute inset-x-1 -bottom-px left-0 hidden h-px w-full bg-gradient-to-r from-garden-accent/0 via-garden-accent to-garden-accent/0 group-aria-selected:block dark:from-forest-accent/0 dark:via-forest-accent dark:to-forest-accent/0" />
+                <span className="absolute inset-x-1 -bottom-px left-0 opacity-0 h-px w-full bg-gradient-to-r from-garden-accent-2/0 via-garden-accent-2/40 to-garden-accent-2/0 group-aria-selected:opacity-100 dark:from-forest-accent/0 dark:via-forest-accent/40 dark:to-forest-accent/0 transition-opacity duration-200" />
               </a>
             ))}
           </div>

@@ -65,7 +65,8 @@ export default {
           'content-quiet': '#877e6e',
           'content-loud': '#4a5f53',
           'content-quiet-2': '#d9d1c9',
-          accent: '#d97a50'
+          accent: '#d97a50',
+          'accent-2': '#4A7B82',
         },
       },
     },
