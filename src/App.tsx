@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="mx-auto w-full max-w-2xl">
       <SectionsProvider>
-        <Navigation sections={sections.map(({ id, name }) => ({ id, name }))} />
+        <Navigation sections={sections.map(({ id, name }) => ({ id, name }))} onToggleTheme={() => toggleTheme()} />
         <main className="mb-10 space-y-10 px-4 pt-10 sm:mb-14 sm:px-6 md:space-y-14 md:pt-16 lg:px-8">
           {sections.map(section => (
             <Section key={section.id} id={section.id}>
