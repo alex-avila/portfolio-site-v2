@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  background-image: url(./assets/noise-light.svg);
+  @apply bg-garden-base bg-blend-multiply;
+}
+
+:root.dark {
+  background-image: url(./assets/noise-dark.svg);
+  @apply bg-forest-base bg-blend-normal;
+}

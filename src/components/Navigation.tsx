@@ -104,15 +104,15 @@ function Navigation({ sections }: INavigationProps) {
 
   return (
     <header ref={navigationRef} className="sticky inset-x-0 top-0 z-50 flex w-full justify-start text-sm">
-      <nav className="relative mx-auto mt-4 flex w-max max-w-2xl items-center justify-between rounded-full border border-garden-content-quiet-2 px-4 dark:border-forest-content-quiet-2">
+      <nav className="border-garden-content-quiet-2 dark:border-forest-content-quiet-2 relative mx-auto mt-4 flex w-max max-w-2xl items-center justify-between rounded-full border px-4">
         {/* grainy, blurry background */}
         <div className="absolute inset-0 size-full overflow-hidden rounded-full">
           <div className="relative isolate size-full backdrop-blur">
             <div
-              className="absolute inset-0 z-10 size-[200%] opacity-70 brightness-[125%] contrast-100 [mask-image:linear-gradient(to_top,black,transparent_200%)] dark:opacity-15 dark:brightness-100 dark:contrast-200"
+              className="absolute bottom-0 left-0 z-10 h-[220px] w-full bg-repeat opacity-75 contrast-[150%] [mask-image:linear-gradient(to_top,black,transparent_2.75rem)] dark:opacity-15 dark:brightness-[200%] dark:[mask-image:linear-gradient(to_top,black,transparent_2.75rem)]"
               style={{ backgroundImage: `url(${noiseSvg})` }}
             />
-            <div className="absolute inset-0 size-full bg-garden-base/50 mix-blend-multiply dark:bg-forest-base/50" />
+            <div className="bg-garden-base/40 dark:bg-forest-base/50 absolute inset-0 size-full" />
           </div>
         </div>
 
@@ -121,13 +121,13 @@ function Navigation({ sections }: INavigationProps) {
             {sections.map((section, index) => (
               <a
                 key={section.id}
-                className="group relative px-3 py-3 text-garden-content-quiet hover:text-garden-content-loud focus:outline-none aria-selected:border-garden-accent-2 aria-selected:font-medium aria-selected:text-garden-accent-2 dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-selected:text-forest-accent transition-[color,_font-weight] duration-200"
+                className="text-garden-content-quiet hover:text-garden-content-loud aria-selected:border-garden-accent-2 aria-selected:text-garden-accent-2 dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-selected:text-forest-accent group relative px-3 py-3 transition-[color,_font-weight] duration-200 focus:outline-none aria-selected:font-medium"
                 href={`#${section.id}`}
                 onClick={evt => scrollIntoView(evt, index)}
                 aria-selected={sectionsState.prominentSection === section.id}
               >
                 {section.name}
-                <span className="absolute inset-x-1 -bottom-px left-0 opacity-0 h-px w-full bg-gradient-to-r from-garden-accent-2/0 via-garden-accent-2/40 to-garden-accent-2/0 group-aria-selected:opacity-100 dark:from-forest-accent/0 dark:via-forest-accent/40 dark:to-forest-accent/0 transition-opacity duration-200" />
+                <span className="from-garden-accent-2/0 via-garden-accent-2/40 to-garden-accent-2/0 dark:from-forest-accent/0 dark:via-forest-accent/40 dark:to-forest-accent/0 absolute inset-x-1 -bottom-px left-0 h-px w-full bg-gradient-to-r opacity-0 transition-opacity duration-200 group-aria-selected:opacity-100" />
               </a>
             ))}
           </div>

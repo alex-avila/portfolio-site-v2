@@ -36,11 +36,6 @@ const defaultSansFonts = [
 // - - one for additional text that isn't super important or just categorizes stuff
 // - it has a super soft, subtle color for mainly borders and decorative lines
 
-const darkForest = {
-  bg: "#171212",
-  headings: "#1eb854",
-};
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
@@ -52,21 +47,21 @@ export default {
       },
       colors: {
         forest: {
-          base: '#1a2b2d',
-          content: '#b8c7ba',
-          'content-quiet': '#94a29b',
-          'content-loud': '#d9e2d2',
-          'content-quiet-2': '#647c73',
-          accent: '#e5b083'
+          base: "#1a2b2d",
+          content: "#b8c7ba",
+          "content-quiet": "#94a29b",
+          "content-loud": "#d9e2d2",
+          "content-quiet-2": "#647c73",
+          accent: "#e5b083",
         },
         garden: {
-          base: '#f5efe9',
-          content: '#5a5f56',
-          'content-quiet': '#877e6e',
-          'content-loud': '#4a5f53',
-          'content-quiet-2': '#d9d1c9',
-          accent: '#d97a50',
-          'accent-2': '#4A7B82',
+          base: "#f5efe9",
+          content: "#5a5f56",
+          "content-quiet": "#877e6e",
+          "content-loud": "#4a5f53",
+          "content-quiet-2": "#d9d1c9",
+          accent: "#d97a50",
+          "accent-2": "#4A7B82",
         },
       },
     },
