@@ -152,10 +152,10 @@ function withIconProvider(IconComponent: IconType): React.ReactElement {
 function Skills() {
   return (
     <div>
-      <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-gray-800 dark:text-neutral-200">
+      <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-garden-content-loud dark:text-forest-content-loud">
         <span>Skills</span>
-        <span className="relative top-[1.5px] h-px w-full grow bg-gray-200 dark:bg-neutral-700" />
-        <span className="shrink-0 text-gray-200 dark:text-neutral-700">スキル</span>
+        <span className="relative top-[1.5px] h-px w-full grow bg-garden-content-quiet-2 dark:bg-forest-content-quiet-2" />
+        <span className="shrink-0 text-garden-content-quiet-2 dark:text-forest-content-quiet-2">スキル</span>
       </h2>
 
       <div className="space-y-3">
@@ -163,14 +163,14 @@ function Skills() {
           return (
             <dl key={_skills.category + String(i)} className="flex flex-col gap-1 sm:flex-row">
               <dt className="min-w-32">
-                <span className="block text-sm text-gray-500 dark:text-neutral-500">{_skills.category}:</span>
+                <span className="block text-sm text-garden-content-quiet dark:text-forest-content-quiet">{_skills.category}:</span>
               </dt>
               <dd>
                 <ul className="inline-flex flex-wrap gap-y-1">
                   {_skills.skills.map((skill, j) => (
                     <li
                       key={skill.name + String(j)}
-                      className="me-1 inline-flex items-center text-sm text-gray-800 dark:text-neutral-200 [&:not(:last-child)]:after:content-[',']"
+                      className="me-1 inline-flex items-center text-sm text-garden-content-loud dark:text-forest-content-loud [&:not(:last-child)]:after:content-[',']"
                     >
                       {skill.icon ? skill.icon : null}
                       {skill.name}

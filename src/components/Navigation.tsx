@@ -104,7 +104,7 @@ function Navigation({ sections }: INavigationProps) {
 
   return (
     <header ref={navigationRef} className="sticky inset-x-0 top-0 z-50 flex w-full justify-start text-sm">
-      <nav className="relative mx-auto mt-4 flex w-max max-w-2xl items-center justify-between rounded-full border border-gray-200 px-4 dark:border-neutral-700">
+      <nav className="relative mx-auto mt-4 flex w-max max-w-2xl items-center justify-between rounded-full border border-garden-content-quiet-2 px-4 dark:border-forest-content-quiet-2">
         {/* grainy, blurry background */}
         <div className="absolute inset-0 size-full overflow-hidden rounded-full">
           <div className="relative isolate size-full backdrop-blur">
@@ -112,7 +112,7 @@ function Navigation({ sections }: INavigationProps) {
               className="absolute inset-0 z-10 size-[200%] opacity-70 brightness-[125%] contrast-100 [mask-image:linear-gradient(to_top,black,transparent_200%)] dark:opacity-15 dark:brightness-100 dark:contrast-200"
               style={{ backgroundImage: `url(${noiseSvg})` }}
             />
-            <div className="absolute inset-0 size-full bg-white/50 mix-blend-multiply dark:bg-neutral-900/50" />
+            <div className="absolute inset-0 size-full bg-garden-base/50 mix-blend-multiply dark:bg-forest-base/50" />
           </div>
         </div>
 
@@ -121,14 +121,14 @@ function Navigation({ sections }: INavigationProps) {
             {sections.map((section, index) => (
               <a
                 key={section.id}
-                className="group relative px-3 py-3 text-gray-500 hover:text-gray-800 focus:outline-none aria-selected:border-gray-800 aria-selected:font-medium aria-selected:text-gray-800 dark:text-neutral-400 dark:hover:text-neutral-200 dark:aria-selected:text-neutral-200"
+                className="group relative px-3 py-3 text-garden-content-quiet hover:text-garden-content-loud focus:outline-none aria-selected:border-garden-content-loud aria-selected:font-medium aria-selected:text-garden-content-loud dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-selected:text-forest-content-loud"
                 href={`#${section.id}`}
                 onClick={evt => scrollIntoView(evt, index)}
                 aria-selected={sectionsState.prominentSection === section.id}
               >
                 {section.name}
                 {/* TODO: remove the grayscale when you decide on an accent color */}
-                <span className="absolute inset-x-1 -bottom-px left-0 hidden h-px w-full bg-gradient-to-r from-green-600/0 via-green-600/40 to-green-600/0 grayscale group-aria-selected:block dark:from-green-400/0 dark:via-green-400/40 dark:to-green-400/0" />
+                <span className="absolute inset-x-1 -bottom-px left-0 hidden h-px w-full bg-gradient-to-r from-garden-accent/0 via-garden-accent to-garden-accent/0 group-aria-selected:block dark:from-forest-accent/0 dark:via-forest-accent dark:to-forest-accent/0" />
               </a>
             ))}
           </div>

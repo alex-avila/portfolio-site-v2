@@ -43,10 +43,10 @@ const experiences: ExperienceItem[] = [
 function Experience() {
   return (
     <div>
-      <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-gray-800 dark:text-neutral-200">
+      <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-garden-content-loud dark:text-forest-content-loud">
         <span>Experience</span>
-        <span className="relative top-[1.5px] h-px w-full grow bg-gray-200 dark:bg-neutral-700" />
-        <span className="shrink-0 text-gray-200 dark:text-neutral-700">経験</span>
+        <span className="relative top-[1.5px] h-px w-full grow bg-garden-content-quiet-2 dark:bg-forest-content-quiet-2" />
+        <span className="shrink-0 text-garden-content-quiet-2 dark:text-forest-content-quiet-2">経験</span>
       </h2>
 
       <div>
@@ -54,7 +54,7 @@ function Experience() {
           const title = `${experience.title}${experience.company ? ` at ${experience.company}` : ""}`;
           return (
             <div key={experience.title} className="group relative flex gap-x-5">
-              <div className="relative after:absolute after:bottom-2 after:start-3 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 group-last:after:hidden after:dark:bg-neutral-700">
+              <div className="relative after:absolute after:bottom-2 after:start-3 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-garden-content-quiet-2 group-last:after:hidden after:dark:bg-forest-content-quiet-2">
                 <div className="relative z-10 flex size-6 items-center justify-center">
                   {typeof experience.icon === "string" ? (
                     <img className="size-6 shrink-0" src={experience.icon} width="32" height="32" />
@@ -67,21 +67,21 @@ function Experience() {
               </div>
 
               <div className="grow pb-8 group-last:pb-0">
-                <h3 className="mb-1 text-xs text-gray-600 dark:text-neutral-400">
+                <h3 className="mb-1 text-xs text-garden-content dark:text-forest-content">
                   {experience.from} - {experience.until}
                 </h3>
 
                 {/* TODO: make sure to complete the tailwind set up and add the Inter font I think */}
-                <p className="text-sm font-semibold text-gray-800 dark:text-neutral-200">{title}</p>
+                <p className="text-sm font-semibold text-garden-content-loud dark:text-forest-content-loud">{title}</p>
 
                 {experience.description && (
-                  <p className="mt-1 text-sm text-gray-800 dark:text-neutral-200">{experience.description}</p>
+                  <p className="mt-1 text-sm text-garden-content-loud dark:text-forest-content-loud">{experience.description}</p>
                 )}
 
                 {experience.highlights?.length && (
                   <ul className="ms-6 mt-3 list-disc space-y-1.5">
                     {experience.highlights.map(highlight => (
-                      <li key={highlight} className="ps-1 text-sm text-gray-600 dark:text-neutral-400">
+                      <li key={highlight} className="ps-1 text-sm text-garden-content dark:text-forest-content">
                         {highlight}
                       </li>
                     ))}
