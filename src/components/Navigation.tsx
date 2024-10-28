@@ -137,15 +137,15 @@ function Navigation({ sections, onToggleTheme }: INavigationProps) {
         <NavigationPill isButton>
           <button
             type="button"
-            className="relative flex aspect-square size-full items-center justify-center rounded-full p-4 text-garden-content-quiet focus:outline-none dark:text-forest-content"
+            className="relative flex aspect-square size-full items-center justify-center rounded-full p-3 text-garden-content-quiet focus:outline-none dark:text-forest-content"
             onClick={() => onToggleTheme()}
           >
             <span className="sr-only dark:hidden">Dark</span>
-            <IconContext.Provider value={{ className: "size-4 shrink-0 dark:hidden", size: "32" }}>
+            <IconContext.Provider value={{ className: "size-5 shrink-0 dark:hidden", size: "32" }}>
               <CiCloudMoon />
             </IconContext.Provider>
             <span className="sr-only dark:inline">Light</span>
-            <IconContext.Provider value={{ className: "size-4 shrink-0 hidden dark:inline-block", size: "32" }}>
+            <IconContext.Provider value={{ className: "size-5 shrink-0 hidden dark:inline-block", size: "32" }}>
               <CiSun />
             </IconContext.Provider>
           </button>
@@ -159,17 +159,16 @@ function NavigationPill({ children, isButton = false }: { children?: React.React
   return (
     <div className="group relative mt-4 flex w-max max-w-2xl items-center justify-between rounded-full border border-garden-content-quiet-2 dark:border-forest-content-quiet-2">
       {/* grainy, blurry background */}
+      {/* based on: https://ibelick.com/blog/create-grainy-backgrounds-with-css */}
       <div className="absolute inset-0 isolate size-full overflow-hidden rounded-full">
-        <div className="relative isolate size-full backdrop-blur">
+        <div
+          data-is-button={isButton}
+          className="relative isolate size-full backdrop-blur-sm transition-colors data-[is-button=true]:group-hover:bg-garden-content-quiet-2/50 dark:bg-forest-base/50 data-[is-button=true]:group-hover:dark:bg-forest-content-quiet-2/50"
+        >
           <div
-            className="absolute bottom-0 left-0 z-10 h-[220px] w-full bg-repeat opacity-75 contrast-[150%] [mask-image:linear-gradient(to_top,black,transparent_2.75rem)] dark:opacity-15 dark:brightness-[200%] dark:[mask-image:linear-gradient(to_top,black,transparent_2.75rem)]"
+            className="absolute inset-0 h-full w-full bg-transparent bg-[size:220px] bg-repeat opacity-75 contrast-[150%] [mask-image:linear-gradient(to_top,black,transparent_2.75rem)] dark:opacity-25 dark:brightness-[100%] dark:[mask-image:linear-gradient(to_top,black,transparent_120%)]"
             style={{ backgroundImage: `url(${noiseSvg})` }}
           />
-          {isButton ? (
-            <div className="absolute inset-0 size-full bg-garden-base/40 transition-colors group-hover:bg-garden-content-quiet-2/40 dark:bg-forest-base/50 group-hover:dark:bg-forest-content-quiet-2/50" />
-          ) : (
-            <div className="absolute inset-0 size-full bg-garden-base/40 dark:bg-forest-base/50" />
-          )}
         </div>
       </div>
 

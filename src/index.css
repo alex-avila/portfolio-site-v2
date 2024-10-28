@@ -2,12 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  background-image: url(./assets/noise-light.svg);
-  @apply bg-garden-base bg-blend-multiply;
+body {
+  @apply relative;
 }
 
-:root.dark {
-  background-image: url(./assets/noise-dark.svg);
-  @apply bg-forest-base bg-blend-normal;
+body::before {
+  background-image: url(./assets/noise.svg);
+  @apply absolute inset-0 z-[-1] size-full bg-transparent bg-[size:12.5rem] bg-repeat contrast-150 content-[''];
+}
+
+:root:not(.dark) body::before {
+  @apply opacity-25;
+}
+
+:root.dark body::before {
+  @apply opacity-10;
 }
