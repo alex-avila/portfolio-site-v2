@@ -47,12 +47,12 @@ export default {
       },
       colors: {
         forest: {
-          base: "#0e1a1b",
+          base: "#1a2b2d",
           content: "#b8c7ba",
           "content-quiet": "#94a29b",
           "content-loud": "#d9e2d2",
-          "content-quiet-2": "#4a635f",
-          accent: "#e8a869",
+          "content-quiet-2": "#647c73",
+          accent: "#e5b083",
         },
         garden: {
           base: "#f5efe9",

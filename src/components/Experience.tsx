@@ -111,7 +111,7 @@ function Experience() {
                     {experience.tech.map(_tech => (
                       <li
                         key={_tech}
-                        className="relative inline-block pe-4 text-sm text-garden-content-loud before:absolute before:end-1.5 before:top-[calc(50%+1px)] before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-garden-content-quiet last:pe-0 last-of-type:before:hidden dark:text-forest-content-loud dark:before:bg-forest-content-quiet"
+                        className="relative inline-block pe-4 text-xs text-garden-content-loud before:absolute before:end-1.5 before:top-[calc(50%+1px)] before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-garden-content-quiet last:pe-0 last-of-type:before:hidden dark:text-forest-content-loud dark:before:bg-forest-content-quiet"
                       >
                         {_tech}
                       </li>
