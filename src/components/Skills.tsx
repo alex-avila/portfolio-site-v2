@@ -148,10 +148,12 @@ function withIconProvider(IconComponent: IconType): React.ReactElement {
 function Skills() {
   return (
     <div>
-      <h2 className="text-garden-content-loud dark:text-forest-content-loud mb-5 flex items-center justify-between gap-x-3 font-medium">
+      <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-garden-content-loud dark:text-forest-content-loud">
         <span>Skills</span>
-        <span className="bg-garden-content-quiet-2 dark:bg-forest-content-quiet-2 relative top-[1.5px] h-px w-full grow" />
-        <span className="text-garden-content-quiet-2 dark:text-forest-content-quiet-2 shrink-0">スキル</span>
+        <span className="relative top-[1.5px] h-px w-full grow bg-garden-content-quiet-2 dark:bg-forest-content-quiet-2" />
+        <span className="shrink-0 text-garden-content-quiet-2 dark:text-forest-content-quiet-2" aria-hidden="true">
+          スキル
+        </span>
       </h2>
 
       <div className="space-y-3">
@@ -159,7 +161,7 @@ function Skills() {
           return (
             <dl key={_skills.category + String(i)} className="flex flex-col gap-1 sm:flex-row">
               <dt className="min-w-32">
-                <span className="text-garden-content-quiet dark:text-forest-content-quiet block text-sm">
+                <span className="block text-sm text-garden-content-quiet dark:text-forest-content-quiet">
                   {_skills.category}:
                 </span>
               </dt>
@@ -168,7 +170,7 @@ function Skills() {
                   {_skills.skills.map((skill, j) => (
                     <li
                       key={skill.name + String(j)}
-                      className="text-garden-content-loud dark:text-forest-content-loud me-1 inline-flex items-center text-sm [&:not(:last-child)]:after:content-[',']"
+                      className="me-1 inline-flex items-center text-sm text-garden-content-loud dark:text-forest-content-loud [&:not(:last-child)]:after:content-[',']"
                     >
                       {skill.icon ? skill.icon : null}
                       {skill.name}

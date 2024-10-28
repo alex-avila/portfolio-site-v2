@@ -63,7 +63,9 @@ function Experience() {
       <h2 className="mb-5 flex items-center justify-between gap-x-3 font-medium text-garden-content-loud dark:text-forest-content-loud">
         <span>Experience</span>
         <span className="relative top-[1.5px] h-px w-full grow bg-garden-content-quiet-2 dark:bg-forest-content-quiet-2" />
-        <span className="shrink-0 text-garden-content-quiet-2 dark:text-forest-content-quiet-2">経験</span>
+        <span className="shrink-0 text-garden-content-quiet-2 dark:text-forest-content-quiet-2" aria-hidden="true">
+          経験
+        </span>
       </h2>
 
       <div>

@@ -22,10 +22,10 @@ function About() {
       <h1 className="text-lg font-bold tracking-wide text-garden-content-loud dark:text-forest-content-loud">
         Alex Avila
       </h1>
-      <p className="text-sm text-garden-content dark:text-forest-content">Web Developer</p>
+      <p className="text-sm text-garden-content dark:text-forest-content">Frontend Engineer</p>
       <div className="mt-8 space-y-3">
         <p className="text-sm text-garden-content dark:text-forest-content">
-          I'm a web developer based in Denver, CO with 6+ years of experience in building for the web.
+          I'm a developer based in Denver, CO with 6+ years of experience in building for the web.
         </p>
         <p className="text-sm text-garden-content dark:text-forest-content">
           I specializing in frontend development and aim to build beautiful, functional, & accessible user interfaces.
