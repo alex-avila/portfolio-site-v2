@@ -47,12 +47,12 @@ export default {
       },
       colors: {
         forest: {
-          base: "#1a2b2d",
+          base: "#0e1a1b",
           content: "#b8c7ba",
           "content-quiet": "#94a29b",
           "content-loud": "#d9e2d2",
-          "content-quiet-2": "#647c73",
-          accent: "#e5b083",
+          "content-quiet-2": "#4a635f",
+          accent: "#e8a869",
         },
         garden: {
           base: "#f5efe9",
@@ -60,8 +60,8 @@ export default {
           "content-quiet": "#877e6e",
           "content-loud": "#4a5f53",
           "content-quiet-2": "#d9d1c9",
-          accent: "#d97a50",
-          "accent-2": "#7A9E78",
+          accent: "#e48758",
+          "accent-2": "#579f79",
         },
       },
     },
