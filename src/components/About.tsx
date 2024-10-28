@@ -28,9 +28,9 @@ function About() {
           I'm a developer based in Denver, CO with 6+ years of experience in building for the web.
         </p>
         <p className="text-sm text-garden-content dark:text-forest-content">
-          I specializing in frontend development and aim to build beautiful, functional, & accessible user interfaces.
-          My expertise includes implementing changes on the backend, setting up deployment processes, creating
-          pixel-perfect user interfaces and web performance optimization.
+          I specialize in frontend development and aim to build beautiful, functional, & accessible user interfaces. My
+          expertise includes implementing changes on the backend, setting up deployment processes, creating
+          pixel-perfect user interfaces & web performance optimization.
         </p>
 
         <ul className="mt-5 flex flex-col gap-y-3">
