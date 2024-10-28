@@ -119,13 +119,13 @@ function Navigation({ sections, onToggleTheme }: INavigationProps) {
               {sections.map((section, index) => (
                 <a
                   key={section.id}
-                  className="text-garden-content-quiet hover:text-garden-content-loud aria-selected:border-garden-accent-2 aria-selected:text-garden-accent-2 dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-selected:text-forest-accent group relative px-3 py-3 transition-[color,_font-weight] duration-300 focus:outline-none aria-selected:font-medium"
+                  className="group relative px-3 py-3 text-garden-content-quiet transition-[color,_font-weight] hover:text-garden-content-loud focus:outline-none aria-selected:border-garden-accent-2 aria-selected:font-medium aria-selected:text-garden-accent-2 dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-selected:text-forest-accent"
                   href={`#${section.id}`}
                   onClick={evt => scrollIntoView(evt, index)}
                   aria-selected={sectionsState.prominentSection === section.id}
                 >
                   {section.name}
-                  <span className="from-garden-accent-2/0 via-garden-accent-2/40 to-garden-accent-2/0 dark:from-forest-accent/0 dark:via-forest-accent/40 dark:to-forest-accent/0 absolute inset-x-1 -bottom-px left-0 h-px w-full bg-gradient-to-r opacity-0 transition-opacity duration-300 group-aria-selected:opacity-100" />
+                  <span className="absolute inset-x-1 -bottom-px left-0 h-px w-full bg-gradient-to-r from-garden-accent-2/0 via-garden-accent-2/40 to-garden-accent-2/0 opacity-0 transition-opacity group-aria-selected:opacity-100 dark:from-forest-accent/0 dark:via-forest-accent/40 dark:to-forest-accent/0" />
                 </a>
               ))}
             </div>
@@ -137,7 +137,7 @@ function Navigation({ sections, onToggleTheme }: INavigationProps) {
         <NavigationPill isButton>
           <button
             type="button"
-            className="text-garden-content-quiet dark:text-forest-content relative flex aspect-square size-full items-center justify-center rounded-full p-4 focus:outline-none"
+            className="relative flex aspect-square size-full items-center justify-center rounded-full p-4 text-garden-content-quiet focus:outline-none dark:text-forest-content"
             onClick={() => onToggleTheme()}
           >
             <span className="sr-only dark:hidden">Dark</span>
@@ -157,18 +157,18 @@ function Navigation({ sections, onToggleTheme }: INavigationProps) {
 
 function NavigationPill({ children, isButton = false }: { children?: React.ReactNode; isButton?: boolean }) {
   return (
-    <div className="border-garden-content-quiet-2 dark:border-forest-content-quiet-2 group relative mt-4 flex w-max max-w-2xl items-center justify-between rounded-full border">
+    <div className="group relative mt-4 flex w-max max-w-2xl items-center justify-between rounded-full border border-garden-content-quiet-2 dark:border-forest-content-quiet-2">
       {/* grainy, blurry background */}
-      <div className="absolute inset-0 size-full overflow-hidden rounded-full">
+      <div className="absolute inset-0 isolate size-full overflow-hidden rounded-full">
         <div className="relative isolate size-full backdrop-blur">
           <div
             className="absolute bottom-0 left-0 z-10 h-[220px] w-full bg-repeat opacity-75 contrast-[150%] [mask-image:linear-gradient(to_top,black,transparent_2.75rem)] dark:opacity-15 dark:brightness-[200%] dark:[mask-image:linear-gradient(to_top,black,transparent_2.75rem)]"
             style={{ backgroundImage: `url(${noiseSvg})` }}
           />
           {isButton ? (
-            <div className="bg-garden-base/40 dark:bg-forest-base/50 group-hover:bg-garden-content-quiet-2/40 group-hover:dark:bg-forest-content-quiet-2/50 absolute inset-0 size-full transition-colors duration-300" />
+            <div className="absolute inset-0 size-full bg-garden-base/40 transition-colors group-hover:bg-garden-content-quiet-2/40 dark:bg-forest-base/50 group-hover:dark:bg-forest-content-quiet-2/50" />
           ) : (
-            <div className="bg-garden-base/40 dark:bg-forest-base/50 absolute inset-0 size-full" />
+            <div className="absolute inset-0 size-full bg-garden-base/40 dark:bg-forest-base/50" />
           )}
         </div>
       </div>

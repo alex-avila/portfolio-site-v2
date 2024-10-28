@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useCallback, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 type SectionRef = React.RefObject<HTMLDivElement>;
 interface ISectionsContext {
@@ -27,7 +28,17 @@ export function SectionsProvider({ children }: { children?: React.ReactNode }) {
   );
 }
 
-export function Section({ id, children }: { id: string; children?: React.ReactNode }) {
+export function Section({
+  id,
+  withMotion = true,
+  delay = 0,
+  children,
+}: {
+  id: string;
+  withMotion?: boolean;
+  delay?: number;
+  children?: React.ReactNode;
+}) {
   const sectionsContext = useContext(SectionsContext);
 
   if (!sectionsContext) {
@@ -47,9 +58,17 @@ export function Section({ id, children }: { id: string; children?: React.ReactNo
     };
   }, [registerSection, unregisterSection]);
 
-  return (
+  const content = (
     <div id={id} ref={ref} className="scroll-mt-[var(--header-height,4.75rem)]">
       {children}
     </div>
+  );
+
+  return withMotion ? (
+    <motion.div initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.8, delay }}>
+      {content}
+    </motion.div>
+  ) : (
+    content
   );
 }
