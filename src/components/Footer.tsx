@@ -25,10 +25,10 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
             {links.map(link => (
               <div
                 key={link.label}
-                className="relative inline-block pe-4 text-xs before:absolute before:end-1.5 before:top-1/2 before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-gray-400 last:pe-0 last-of-type:before:hidden dark:text-forest-content-quiet dark:before:bg-neutral-600"
+                className="relative inline-block pe-4 text-xs before:absolute before:end-1.5 before:top-[calc(50%+1px)] before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-gray-400 last:pe-0 last-of-type:before:hidden dark:text-forest-content-quiet dark:before:bg-neutral-600"
               >
                 <a
-                  className="text-xs text-garden-content-quiet underline hover:text-garden-accent-2 hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-accent transition-[color,text-decoration-thickness]"
+                  className="text-xs text-garden-content-quiet underline transition-[color,text-decoration-thickness] hover:text-garden-accent-2 hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-accent"
                   href={link.href}
                   target="_blank"
                 >
@@ -40,7 +40,7 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
             <li className="inline-block">
               <button
                 type="button"
-                className="relative flex size-7 items-center justify-center rounded-full border border-garden-content-quiet-2 text-garden-content-quiet hover:bg-garden-content-quiet-2 transition-colors focus:bg-garden-content-quiet-2 focus:outline-none dark:hidden dark:border-forest-content-quiet-2 dark:text-forest-content dark:hover:bg-forest-content-quiet-2 dark:focus:bg-forest-content-quiet-2"
+                className="relative flex size-7 items-center justify-center rounded-full border border-garden-content-quiet-2 text-garden-content-quiet transition-colors hover:bg-garden-content-quiet-2 focus:bg-garden-content-quiet-2 focus:outline-none dark:hidden dark:border-forest-content-quiet-2 dark:text-forest-content dark:hover:bg-forest-content-quiet-2 dark:focus:bg-forest-content-quiet-2"
                 onClick={() => onToggleTheme()}
               >
                 <span className="sr-only">Dark</span>
@@ -50,7 +50,7 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
               </button>
               <button
                 type="button"
-                className="relative hidden size-7 items-center justify-center rounded-full border border-garden-content-quiet-2 text-garden-content-quiet hover:bg-garden-content-quiet-2 transition-colors focus:bg-garden-content-quiet-2 focus:outline-none dark:flex dark:border-forest-content-quiet-2 dark:text-forest-content dark:hover:bg-forest-content-quiet-2 dark:focus:bg-forest-content-quiet-2"
+                className="relative hidden size-7 items-center justify-center rounded-full border border-garden-content-quiet-2 text-garden-content-quiet transition-colors hover:bg-garden-content-quiet-2 focus:bg-garden-content-quiet-2 focus:outline-none dark:flex dark:border-forest-content-quiet-2 dark:text-forest-content dark:hover:bg-forest-content-quiet-2 dark:focus:bg-forest-content-quiet-2"
                 onClick={() => onToggleTheme()}
               >
                 <span className="sr-only">Light</span>
