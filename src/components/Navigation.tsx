@@ -4,7 +4,6 @@ import { CiCloudMoon, CiSun } from "react-icons/ci";
 import { SectionsContext } from "./SectionsContext";
 import { useProminentSectionReducer } from "../hooks";
 import { throttle } from "../utils";
-import noiseSvg from "../assets/noise.svg";
 
 const generateThresholds = (countBy: number) => {
   const thresholds = [];
@@ -156,7 +155,7 @@ function Navigation({ sections, onToggleTheme }: INavigationProps) {
 }
 
 function NavigationPill({ children, isButton = false }: { children?: React.ReactNode; isButton?: boolean }) {
-  let noiseClasses = "absolute  bg-transparent bg-[size:220px] bg-repeat contrast-150";
+  let noiseClasses = "absolute bg-noise bg-transparent bg-[size:220px] bg-repeat contrast-150";
 
   if (!isButton) {
     noiseClasses = `${noiseClasses} inset-0 size-full opacity-75 dark:opacity-25 [mask-image:linear-gradient(transparent,black)]`;
@@ -173,7 +172,7 @@ function NavigationPill({ children, isButton = false }: { children?: React.React
       {/* based on: https://ibelick.com/blog/create-grainy-backgrounds-with-css */}
       <div className="absolute inset-0 isolate size-full overflow-hidden rounded-full">
         <div className="relative isolate size-full backdrop-blur transition-colors group-data-[is-button=true]:group-hover:bg-garden-content-quiet-2/50 dark:bg-forest-base/50 group-data-[is-button=true]:group-hover:dark:bg-forest-content-quiet-2/50">
-          <div className={noiseClasses} style={{ backgroundImage: `url(${noiseSvg})` }} />
+          <div className={noiseClasses} />
         </div>
       </div>
 

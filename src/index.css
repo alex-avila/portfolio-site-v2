@@ -7,8 +7,7 @@ body {
 }
 
 body::before {
-  background-image: url(./assets/noise.svg);
-  @apply absolute inset-0 z-[-1] size-full bg-transparent bg-[size:12.5rem] bg-repeat contrast-150 content-[''];
+  @apply bg-noise absolute inset-0 z-[-1] size-full bg-transparent bg-[size:12.5rem] bg-repeat contrast-150 content-[''];
 }
 
 :root:not(.dark) body::before {
@@ -17,4 +16,10 @@ body::before {
 
 :root.dark body::before {
   @apply opacity-10;
+}
+
+@layer components {
+  .bg-noise {
+    background-image: url(./assets/noise.svg);
+  }
 }
