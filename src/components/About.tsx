@@ -19,13 +19,15 @@ const links = [
 function About() {
   return (
     <div>
-      <h1 className="text-garden-content-loud dark:text-forest-content-loud text-lg font-medium">Alex Avila</h1>
-      <p className="text-garden-content dark:text-forest-content text-sm">Web Developer</p>
+      <h1 className="text-lg font-bold tracking-wide text-garden-content-loud dark:text-forest-content-loud">
+        Alex Avila
+      </h1>
+      <p className="text-sm text-garden-content dark:text-forest-content">Web Developer</p>
       <div className="mt-8 space-y-3">
-        <p className="text-garden-content dark:text-forest-content text-sm">
+        <p className="text-sm text-garden-content dark:text-forest-content">
           I'm a web developer based in Denver, CO with 6+ years of experience in building for the web.
         </p>
-        <p className="text-garden-content dark:text-forest-content text-sm">
+        <p className="text-sm text-garden-content dark:text-forest-content">
           I specializing in frontend development and aim to build beautiful, functional, & accessible user interfaces.
           My expertise includes implementing changes on the backend, setting up deployment processes, creating
           pixel-perfect user interfaces and web performance optimization.
@@ -40,7 +42,7 @@ function About() {
                 {link.icon}
               </IconContext.Provider>
               <a
-                className="text-garden-content-quiet hover:text-garden-accent-2 dark:text-forest-content-quiet dark:hover:text-forest-accent text-[13px] underline transition-[color,text-decoration-thickness] hover:decoration-2 focus:decoration-2 focus:outline-none"
+                className="text-[13px] text-garden-content-quiet underline transition-[color,text-decoration-thickness] hover:text-garden-accent-2 hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-accent"
                 href={link.href}
                 target="_blank"
               >
