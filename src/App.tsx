@@ -18,7 +18,7 @@ function App() {
         <Navigation sections={sections.map(({ id, name }) => ({ id, name }))} onToggleTheme={() => toggleTheme()} />
         <main className="mb-10 space-y-10 px-4 pt-10 sm:mb-14 sm:px-6 md:space-y-14 md:pt-16 lg:px-8">
           {sections.map((section, index) => (
-            <Section key={section.id} id={section.id} withMotion={index !== 0} delay={0.1 * index}>
+            <Section key={section.id} id={section.id} withMotion={index !== 0} delay={0.1}>
               {section.component}
             </Section>
           ))}
