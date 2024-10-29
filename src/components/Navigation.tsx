@@ -118,13 +118,13 @@ function Navigation({ sections, onToggleTheme }: INavigationProps) {
               {sections.map((section, index) => (
                 <a
                   key={section.id}
-                  className="group relative px-3 py-3 text-garden-content-quiet transition-[color,_font-weight] hover:text-garden-content-loud focus:outline-none aria-selected:border-garden-accent-2 aria-selected:font-medium aria-selected:text-garden-accent-2 dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-selected:text-forest-accent"
+                  className="group relative px-3 py-3 text-garden-content-quiet transition-[color,_font-weight] hover:text-garden-content-loud focus:outline-none aria-[current=true]:border-garden-accent-2 aria-[current=true]:font-medium aria-[current=true]:text-garden-accent-2 dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-[current=true]:text-forest-accent"
                   href={`#${section.id}`}
                   onClick={evt => scrollIntoView(evt, index)}
-                  aria-selected={sectionsState.prominentSection === section.id}
+                  aria-current={sectionsState.prominentSection === section.id}
                 >
                   {section.name}
-                  <span className="absolute inset-x-1 -bottom-px left-0 h-px w-full bg-gradient-to-r from-garden-accent-2/0 via-garden-accent-2/40 to-garden-accent-2/0 opacity-0 transition-opacity group-aria-selected:opacity-100 dark:from-forest-accent/0 dark:via-forest-accent/40 dark:to-forest-accent/0" />
+                  <span className="absolute inset-x-1 -bottom-px left-0 h-px w-full bg-gradient-to-r from-garden-accent-2/0 via-garden-accent-2/40 to-garden-accent-2/0 opacity-0 transition-opacity group-aria-[current=true]:opacity-100 dark:from-forest-accent/0 dark:via-forest-accent/40 dark:to-forest-accent/0" />
                 </a>
               ))}
             </div>

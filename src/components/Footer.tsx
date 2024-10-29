@@ -29,15 +29,19 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
           </div>
 
           <ul className="flex flex-wrap items-center">
-            {links.map(link => (
-              <div
+            {links.map((link, index) => (
+              <li
                 key={link.label}
-                className="relative inline-block pe-4 text-xs before:absolute before:end-1.5 before:top-[calc(50%+1px)] before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-gray-400 last:pe-0 last-of-type:before:hidden dark:text-forest-content-quiet dark:before:bg-neutral-600"
+                className={
+                  index === links.length - 1
+                    ? "inline-block pe-4 text-xs dark:text-forest-content-quiet"
+                    : "relative inline-block pe-4 text-xs before:absolute before:end-1.5 before:top-[calc(50%+1px)] before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-garden-content-quiet-2 dark:text-forest-content-quiet dark:before:bg-forest-content-quiet-2"
+                }
               >
                 <Link href={link.href} isExternal>
                   {link.label}
                 </Link>
-              </div>
+              </li>
             ))}
 
             <li className="inline-block">
