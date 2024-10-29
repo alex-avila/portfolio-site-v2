@@ -9,15 +9,14 @@ import {
   SiWebpack as WebpackIcon,
   SiAlpinedotjs as AlpineJsIcon,
   SiTailwindcss as TailwindCssIcon,
+  SiSass as SassIcon,
   SiShopify as ShopifyIcon,
   SiNodedotjs as NodeJsIcon,
   SiKoa as KoaIcon,
   SiExpress as ExpressIcon,
   SiNestjs as NestJsIcon,
-  SiMongodb as MongoDbIcon,
   SiGit as GitIcon,
   SiGithubactions as GitHubActionsIcon,
-  SiDocker as DockerIcon,
   SiAmazonwebservices as AwsIcon,
   SiAwslambda as AwsLambdaIcon,
 } from "react-icons/si";
@@ -48,8 +47,16 @@ const skills: Skills[] = [
         icon: <ReactIcon />,
       },
       {
+        name: "Alpine.js",
+        icon: <AlpineJsIcon />,
+      },
+      {
         name: "Tailwind CSS",
         icon: <TailwindCssIcon />,
+      },
+      {
+        name: "Sass",
+        icon: <SassIcon />,
       },
       {
         name: "webpack",
@@ -58,10 +65,6 @@ const skills: Skills[] = [
       {
         name: "Vite",
         icon: <ViteIcon />,
-      },
-      {
-        name: "Alpine.js",
-        icon: <AlpineJsIcon />,
       },
     ],
   },
@@ -83,10 +86,6 @@ const skills: Skills[] = [
       {
         name: "NestJS",
         icon: <NestJsIcon />,
-      },
-      {
-        name: "MongoDB",
-        icon: <MongoDbIcon />,
       },
     ],
   },
@@ -110,10 +109,6 @@ const skills: Skills[] = [
       {
         name: "GitHub Actions",
         icon: <GitHubActionsIcon />,
-      },
-      {
-        name: "Docker",
-        icon: <DockerIcon />,
       },
       {
         name: "AWS Elastic Beanstalk",
