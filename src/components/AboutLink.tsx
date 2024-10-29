@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, memo } from "react";
 import { IconContext } from "react-icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoCheckmark, IoCopyOutline } from "react-icons/io5";
+import Link from "./Link";
 import useEphemeralState from "../hooks/useEphemeralState";
 
 const COPIED_STATES = {
@@ -48,13 +49,9 @@ function AboutLink({ label, href, withCopyButton, children }: AboutLinkProps) {
   return (
     <li key={href} className="flex items-end gap-x-2.5 text-garden-content-quiet dark:text-forest-content-quiet">
       {children}
-      <a
-        className="text-[13px] text-garden-content-quiet underline transition-[color,text-decoration-thickness] hover:text-garden-accent-2 hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-accent"
-        href={href}
-        target="_blank"
-      >
+      <Link href={href} textSize="text-[13px]" isExternal>
         {label}
-      </a>
+      </Link>
       {withCopyButton && supportsClipboard && (
         <button
           type="button"

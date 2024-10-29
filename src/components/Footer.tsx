@@ -6,6 +6,7 @@ import {
   SiTailwindcss as TailwindIcon,
   SiVite as ViteIcon,
 } from "react-icons/si";
+import Link from "./Link";
 
 const links = [
   {
@@ -33,13 +34,9 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
                 key={link.label}
                 className="relative inline-block pe-4 text-xs before:absolute before:end-1.5 before:top-[calc(50%+1px)] before:size-[3px] before:-translate-y-1/2 before:rounded-full before:bg-gray-400 last:pe-0 last-of-type:before:hidden dark:text-forest-content-quiet dark:before:bg-neutral-600"
               >
-                <a
-                  className="text-xs text-garden-content-quiet underline transition-[color,text-decoration-thickness] hover:text-garden-accent-2 hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-accent"
-                  href={link.href}
-                  target="_blank"
-                >
+                <Link href={link.href} isExternal>
                   {link.label}
-                </a>
+                </Link>
               </div>
             ))}
 
@@ -68,11 +65,18 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
           </ul>
         </div>
 
-        <div className="mt-2.5 flex items-baseline gap-x-1 text-right text-xs text-garden-content-quiet dark:text-forest-content-quiet">
+        <div className="mt-2.5 flex flex-wrap items-baseline gap-x-1 text-right text-xs text-garden-content-quiet dark:text-forest-content-quiet">
           <IconContext.Provider value={{ className: "inline-block size-2.5", size: "10" }}>
             Built with <ReactIcon /> React, <TailwindIcon /> Tailwind CSS, <TypescriptIcon /> TypeScript & <ViteIcon />{" "}
             Vite
           </IconContext.Provider>
+          <span>
+            (
+            <Link href="https://github.com/alex-avila/portfolio-site-v2" isExternal>
+              source code
+            </Link>
+            )
+          </span>
         </div>
       </div>
     </footer>
