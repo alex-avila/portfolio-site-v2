@@ -76,7 +76,7 @@ function Experience() {
               <div className="relative after:absolute after:bottom-2 after:start-3 after:top-8 after:w-px after:-translate-x-[0.5px] after:bg-garden-content-quiet-2 group-last:after:hidden after:dark:bg-forest-content-quiet-2">
                 <div className="relative z-10 flex size-6 items-center justify-center">
                   {typeof experience.icon === "string" ? (
-                    <img className="size-6 shrink-0" src={experience.icon} width="32" height="32" />
+                    <img className="size-6 shrink-0" src={experience.icon} width="32" height="32" alt="" />
                   ) : (
                     <IconContext.Provider value={{ className: "size-6 shrink-0", size: "32" }}>
                       {experience.icon}
