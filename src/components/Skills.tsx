@@ -1,4 +1,4 @@
-import { IconContext, IconType } from "react-icons";
+import { IconContext } from "react-icons";
 import {
   SiJavascript as JavaScriptIcon,
   SiTypescript as TypeScriptIcon,
