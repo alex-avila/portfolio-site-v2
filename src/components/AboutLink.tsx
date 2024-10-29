@@ -1,24 +1,27 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, memo } from "react";
 import { IconContext } from "react-icons";
 import { AnimatePresence, motion } from "framer-motion";
 import { IoCheckmark, IoCopyOutline } from "react-icons/io5";
 import useEphemeralState from "../hooks/useEphemeralState";
 
-const supportsClipboard = import.meta.env.SSR || navigator.clipboard.writeText;
+const COPIED_STATES = {
+  IDLE: "idle",
+  COPIED: "copied",
+} as const;
 
-function AboutLink({
-  label,
-  href,
-  withCopyButton,
-  children,
-}: {
+const supportsClipboard =
+  typeof navigator !== "undefined" && "clipboard" in navigator && typeof navigator.clipboard.writeText === "function";
+
+interface AboutLinkProps {
   label: string;
   href: string;
   withCopyButton: boolean;
   children: React.ReactNode;
-}) {
+}
+
+function AboutLink({ label, href, withCopyButton, children }: AboutLinkProps) {
   const [isFirstRender, setIsFirstRender] = useState(true);
-  const [ephemeralState, setEphemeralState] = useEphemeralState([{ key: label, default: "idle" }]);
+  const [ephemeralState, setEphemeralState] = useEphemeralState([{ key: label, default: COPIED_STATES.IDLE }]);
   const copiedState = ephemeralState.get(label);
 
   useEffect(() => {
@@ -32,7 +35,7 @@ function AboutLink({
       try {
         navigator.clipboard.writeText(label);
         // sets state for a short period then sets it to the default declared in 1st arg of useEphemeralState
-        setEphemeralState(label, "copied");
+        setEphemeralState(label, COPIED_STATES.COPIED);
       } catch {
         // ignore
       }
@@ -53,36 +56,24 @@ function AboutLink({
       {withCopyButton && supportsClipboard && (
         <button
           type="button"
-          className="group -translate-y-0.5 transition-colors hover:text-garden-content-loud disabled:text-garden-content dark:hover:text-forest-content-loud disabled:dark:text-forest-content"
-          disabled={copiedState === "copied"}
+          className="group -translate-y-0.5 transition-[color] hover:text-garden-content-loud disabled:text-garden-content dark:hover:text-forest-content-loud disabled:dark:text-forest-content"
+          disabled={copiedState === COPIED_STATES.COPIED}
           onClick={() => handleCopy(label)}
         >
           <span className="sr-only" aria-live="polite">
-            {copiedState === "idle" ? "copy" : "copied"}
+            {copiedState === COPIED_STATES.IDLE ? "copy" : "copied"}
           </span>
           <IconContext.Provider value={{ className: "size-[13px] shrink-0", size: "13" }}>
             <AnimatePresence mode="wait">
-              {copiedState === "copied" ? (
-                <motion.div
-                  key="copied"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <IoCheckmark />
-                </motion.div>
-              ) : (
-                <motion.div
-                  key="idle"
-                  initial={isFirstRender ? false : { opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.15 }}
-                >
-                  <IoCopyOutline />
-                </motion.div>
-              )}
+              <motion.div
+                key={copiedState}
+                initial={isFirstRender ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+              >
+                {copiedState === COPIED_STATES.COPIED ? <IoCheckmark /> : <IoCopyOutline />}
+              </motion.div>
             </AnimatePresence>
           </IconContext.Provider>
         </button>
@@ -91,4 +82,4 @@ function AboutLink({
   );
 }
 
-export default AboutLink;
+export default memo(AboutLink);
