@@ -68,7 +68,7 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
           </ul>
         </div>
 
-        <div className="mt-4 flex items-baseline gap-x-1 text-right text-xs text-garden-content-quiet dark:text-forest-content-quiet">
+        <div className="mt-2.5 flex items-baseline gap-x-1 text-right text-xs text-garden-content-quiet dark:text-forest-content-quiet">
           <IconContext.Provider value={{ className: "inline-block size-2.5", size: "10" }}>
             Built with <ReactIcon /> React, <TailwindIcon /> Tailwind CSS, <TypescriptIcon /> TypeScript & <ViteIcon />{" "}
             Vite
