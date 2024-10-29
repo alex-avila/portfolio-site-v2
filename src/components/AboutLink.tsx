@@ -9,9 +9,6 @@ const COPIED_STATES = {
   COPIED: "copied",
 } as const;
 
-const supportsClipboard =
-  typeof navigator !== "undefined" && "clipboard" in navigator && typeof navigator.clipboard.writeText === "function";
-
 interface AboutLinkProps {
   label: string;
   href: string;
@@ -21,8 +18,13 @@ interface AboutLinkProps {
 
 function AboutLink({ label, href, withCopyButton, children }: AboutLinkProps) {
   const [isFirstRender, setIsFirstRender] = useState(true);
+  const [supportsClipboard, setSupportsClipboard] = useState(true);
   const [ephemeralState, setEphemeralState] = useEphemeralState([{ key: label, default: COPIED_STATES.IDLE }]);
   const copiedState = ephemeralState.get(label);
+
+  useEffect(() => {
+    setSupportsClipboard("clipboard" in navigator && typeof navigator.clipboard.writeText === "function");
+  }, []);
 
   useEffect(() => {
     if (isFirstRender) {
