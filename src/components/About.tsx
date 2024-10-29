@@ -36,19 +36,19 @@ function About() {
         </p>
 
         <ul className="mt-5 flex flex-col gap-y-3">
-          {links.map(link => (
-            <AboutLink
-              key={link.label}
-              label={link.label}
-              href={link.href}
-              withCopyButton={link.withCopyButton || false}
-            >
-              <span className="sr-only">{link.iconLabel}</span>
-              <IconContext.Provider value={{ className: "size-3.5 shrink-0", size: "14" }}>
+          <IconContext.Provider value={{ className: "size-3.5 shrink-0", size: "14" }}>
+            {links.map(link => (
+              <AboutLink
+                key={link.label}
+                label={link.label}
+                href={link.href}
+                withCopyButton={link.withCopyButton || false}
+              >
+                <span className="sr-only">{link.iconLabel}</span>
                 {link.icon}
-              </IconContext.Provider>
-            </AboutLink>
-          ))}
+              </AboutLink>
+            ))}
+          </IconContext.Provider>
         </ul>
       </div>
     </div>

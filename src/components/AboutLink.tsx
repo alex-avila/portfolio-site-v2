@@ -53,7 +53,7 @@ function AboutLink({
       {withCopyButton && supportsClipboard && (
         <button
           type="button"
-          className="group text-garden-content-quiet-2 transition-colors hover:text-garden-content disabled:text-garden-content dark:text-forest-content-quiet-2 dark:hover:text-forest-content disabled:dark:text-forest-content"
+          className="group transition-colors hover:text-garden-content-loud disabled:text-garden-content dark:hover:text-forest-content-loud disabled:dark:text-forest-content"
           disabled={copiedState === "copied"}
           onClick={() => handleCopy(label)}
         >

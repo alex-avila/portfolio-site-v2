@@ -33,35 +33,35 @@ const skills: Skills[] = [
     skills: [
       {
         name: "JavaScript",
-        icon: withIconProvider(JavaScriptIcon),
+        icon: <JavaScriptIcon />,
       },
       {
         name: "TypeScript",
-        icon: withIconProvider(TypeScriptIcon),
+        icon: <TypeScriptIcon />,
       },
       {
         name: "Vue",
-        icon: withIconProvider(VueIcon),
+        icon: <VueIcon />,
       },
       {
         name: "React",
-        icon: withIconProvider(ReactIcon),
+        icon: <ReactIcon />,
       },
       {
         name: "Tailwind CSS",
-        icon: withIconProvider(TailwindCssIcon),
+        icon: <TailwindCssIcon />,
       },
       {
         name: "webpack",
-        icon: withIconProvider(WebpackIcon),
+        icon: <WebpackIcon />,
       },
       {
         name: "Vite",
-        icon: withIconProvider(ViteIcon),
+        icon: <ViteIcon />,
       },
       {
         name: "Alpine.js",
-        icon: withIconProvider(AlpineJsIcon),
+        icon: <AlpineJsIcon />,
       },
     ],
   },
@@ -70,33 +70,33 @@ const skills: Skills[] = [
     skills: [
       {
         name: "Node.js",
-        icon: withIconProvider(NodeJsIcon),
+        icon: <NodeJsIcon />,
       },
       {
         name: "Koa",
-        icon: withIconProvider(KoaIcon),
+        icon: <KoaIcon />,
       },
       {
         name: "Express",
-        icon: withIconProvider(ExpressIcon),
+        icon: <ExpressIcon />,
       },
       {
         name: "NestJS",
-        icon: withIconProvider(NestJsIcon),
+        icon: <NestJsIcon />,
       },
       {
         name: "MongoDB",
-        icon: withIconProvider(MongoDbIcon),
+        icon: <MongoDbIcon />,
       },
     ],
   },
   {
     category: "Fullstack",
     skills: [
-      { name: "Nuxt", icon: withIconProvider(NuxtIcon) },
+      { name: "Nuxt", icon: <NuxtIcon /> },
       {
         name: "Shopify Development (Liquid, Shopify APIs, etc.)",
-        icon: withIconProvider(ShopifyIcon),
+        icon: <ShopifyIcon />,
       },
     ],
   },
@@ -105,23 +105,23 @@ const skills: Skills[] = [
     skills: [
       {
         name: "Git",
-        icon: withIconProvider(GitIcon),
+        icon: <GitIcon />,
       },
       {
         name: "GitHub Actions",
-        icon: withIconProvider(GitHubActionsIcon),
+        icon: <GitHubActionsIcon />,
       },
       {
         name: "Docker",
-        icon: withIconProvider(DockerIcon),
+        icon: <DockerIcon />,
       },
       {
         name: "AWS Elastic Beanstalk",
-        icon: withIconProvider(AwsIcon),
+        icon: <AwsIcon />,
       },
       {
         name: "AWS Lambda",
-        icon: withIconProvider(AwsLambdaIcon),
+        icon: <AwsLambdaIcon />,
       },
     ],
   },
@@ -136,14 +136,6 @@ const skills: Skills[] = [
     ],
   },
 ];
-
-function withIconProvider(IconComponent: IconType): React.ReactElement {
-  return (
-    <IconContext.Provider value={{ className: "me-1 size-4 shrink-0", size: "24" }}>
-      <IconComponent />
-    </IconContext.Provider>
-  );
-}
 
 function Skills() {
   return (
@@ -167,15 +159,17 @@ function Skills() {
               </dt>
               <dd>
                 <ul className="inline-flex flex-wrap gap-y-1">
-                  {_skills.skills.map((skill, j) => (
-                    <li
-                      key={skill.name + String(j)}
-                      className="me-1 inline-flex items-center text-sm text-garden-content-loud dark:text-forest-content-loud [&:not(:last-child)]:after:content-[',']"
-                    >
-                      {skill.icon ? skill.icon : null}
-                      {skill.name}
-                    </li>
-                  ))}
+                  <IconContext.Provider value={{ className: "me-1 size-3.5 shrink-0", size: "24" }}>
+                    {_skills.skills.map((skill, j) => (
+                      <li
+                        key={skill.name + String(j)}
+                        className="me-1 inline-flex items-center text-sm text-garden-content-loud dark:text-forest-content-loud [&:not(:last-child)]:after:content-[',']"
+                      >
+                        {skill.icon ? skill.icon : null}
+                        {skill.name}
+                      </li>
+                    ))}
+                  </IconContext.Provider>
                 </ul>
               </dd>
             </dl>

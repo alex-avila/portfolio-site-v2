@@ -1,5 +1,11 @@
 import { IconContext } from "react-icons";
 import { CiCloudMoon, CiSun } from "react-icons/ci";
+import {
+  SiTypescript as TypescriptIcon,
+  SiReact as ReactIcon,
+  SiTailwindcss as TailwindIcon,
+  SiVite as ViteIcon,
+} from "react-icons/si";
 
 const links = [
   {
@@ -60,6 +66,13 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
               </button>
             </li>
           </ul>
+        </div>
+
+        <div className="mt-4 flex items-baseline gap-x-1 text-right text-xs text-garden-content-quiet dark:text-forest-content-quiet">
+          <IconContext.Provider value={{ className: "inline-block size-2.5", size: "10" }}>
+            Built with <ReactIcon /> React, <TailwindIcon /> Tailwind CSS, <TypescriptIcon /> TypeScript & <ViteIcon />{" "}
+            Vite
+          </IconContext.Provider>
         </div>
       </div>
     </footer>
