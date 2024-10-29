@@ -5,7 +5,7 @@ interface EphemeralStateEntry {
   default: string;
 }
 
-const getInitialState = (entries: EphemeralStateEntry[]) => {
+const getInitialState = (entries: EphemeralStateEntry[]) => () => {
   const map = new Map<string, string>();
   entries.forEach(entry => {
     map.set(entry.key, entry.default);
@@ -13,8 +13,8 @@ const getInitialState = (entries: EphemeralStateEntry[]) => {
   return map;
 };
 
-function useEphemeralState(entries: EphemeralStateEntry[], { delay = 1000 }: { delay?: number }) {
-  const [state, setState] = useState(() => getInitialState(entries));
+function useEphemeralState(entries: EphemeralStateEntry[], { duration = 800 }: { duration?: number } = {}) {
+  const [state, setState] = useState(getInitialState(entries));
 
   // set alternative state then set it back to default state
   const setEphemeralState = useCallback(
@@ -36,9 +36,9 @@ function useEphemeralState(entries: EphemeralStateEntry[], { delay = 1000 }: { d
           newState.set(key, defaultState);
           return newState;
         });
-      }, delay);
+      }, duration);
     },
-    [state, delay],
+    [state, duration],
   );
 
   return [state, setEphemeralState] as [typeof state, typeof setEphemeralState];

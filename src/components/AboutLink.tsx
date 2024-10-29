@@ -18,7 +18,7 @@ function AboutLink({
   children: React.ReactNode;
 }) {
   const [isFirstRender, setIsFirstRender] = useState(true);
-  const [ephemeralState, setEphemeralState] = useEphemeralState([{ key: label, default: "idle" }], { delay: 800 });
+  const [ephemeralState, setEphemeralState] = useEphemeralState([{ key: label, default: "idle" }]);
   const copiedState = ephemeralState.get(label);
 
   useEffect(() => {
