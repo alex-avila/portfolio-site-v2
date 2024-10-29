@@ -1,17 +1,19 @@
 import { IconContext } from "react-icons";
-import { CiMail, CiLinkedin } from "react-icons/ci";
+import { IoMail, IoLogoLinkedin } from "react-icons/io5";
+import AboutLink from "./AboutLink";
 
 const links = [
   {
     label: "alex.avila.09@outlook.com",
     href: "mailto:alex.avila.09@outlook.com",
-    icon: <CiMail />,
+    icon: <IoMail />,
     iconLabel: "email",
+    withCopyButton: true,
   },
   {
     label: "@alex-avilx",
     href: "https://www.linkedin.com/in/alex-avilx/",
-    icon: <CiLinkedin />,
+    icon: <IoLogoLinkedin />,
     iconLabel: "LinkedIn",
   },
 ];
@@ -35,20 +37,17 @@ function About() {
 
         <ul className="mt-5 flex flex-col gap-y-3">
           {links.map(link => (
-            <li key={link.href} className="flex items-center gap-x-2.5">
-              {/* TODO: add a 'copy' button so visitors can copy the email address instead */}
+            <AboutLink
+              key={link.label}
+              label={link.label}
+              href={link.href}
+              withCopyButton={link.withCopyButton || false}
+            >
               <span className="sr-only">{link.iconLabel}</span>
-              <IconContext.Provider value={{ className: "size-3.5 shrink-0", size: "24" }}>
+              <IconContext.Provider value={{ className: "size-3.5 shrink-0", size: "14" }}>
                 {link.icon}
               </IconContext.Provider>
-              <a
-                className="text-[13px] text-garden-content-quiet underline transition-[color,text-decoration-thickness] hover:text-garden-accent-2 hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-accent"
-                href={link.href}
-                target="_blank"
-              >
-                {link.label}
-              </a>
-            </li>
+            </AboutLink>
           ))}
         </ul>
       </div>
