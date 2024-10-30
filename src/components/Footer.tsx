@@ -10,6 +10,10 @@ import Link from "./Link";
 
 const links = [
   {
+    label: "Email",
+    href: "mailto:alex.avila.09@outlook.com",
+  },
+  {
     label: "GitHub",
     href: "https://github.com/alex-avila",
   },

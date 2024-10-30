@@ -9,7 +9,6 @@ import {
   SiWebpack as WebpackIcon,
   SiAlpinedotjs as AlpineJsIcon,
   SiTailwindcss as TailwindCssIcon,
-  SiSass as SassIcon,
   SiShopify as ShopifyIcon,
   SiNodedotjs as NodeJsIcon,
   SiKoa as KoaIcon,
@@ -53,10 +52,6 @@ const skills: Skills[] = [
       {
         name: "Tailwind CSS",
         icon: <TailwindCssIcon />,
-      },
-      {
-        name: "Sass",
-        icon: <SassIcon />,
       },
       {
         name: "webpack",

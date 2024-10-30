@@ -21,7 +21,7 @@ const experiences: ExperienceItem[] = [
     from: "OCT 2018",
     until: "OCT 2024",
     description:
-      "Build for the frontend and backend, implement redesigns, optimize web performance, set up payment integrations and more for a diverse clientele in the e-commerce space. Collaborate with clients including AG1, Molekule, Thesis, Rothy's, Glorious Gaming and Stio. Furthermore, work closely with internally with developers, designers & project managers and lead small teams of developer to work on company-owned codebases.",
+      "Build for the frontend and backend, implement redesigns, optimize web performance, set up payment integrations and more for a diverse clientele in the e-commerce space. Collaborate with clients including AG1, Molekule, Thesis, Rothy's, Glorious Gaming and Stio. Furthermore, work internally with developers, designers & project managers and lead small teams of developers to work on company-owned codebases.",
     highlights: [
       "Converted designs from Figma and Sketch into accessible, responsive & interactive UIs",
       "Audited web performance and implemented changes to significantly improve web vitals",
@@ -34,6 +34,7 @@ const experiences: ExperienceItem[] = [
       "Nuxt",
       "Vue",
       "Tailwind CSS",
+      "CSS Modules",
       "Node.js",
       "Koa",
       "Shopify",
