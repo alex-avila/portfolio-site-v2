@@ -23,10 +23,11 @@ const experiences: ExperienceItem[] = [
     description:
       "Build for the frontend and backend, implement redesigns, optimize web performance, set up payment integrations and more for a diverse clientele in the e-commerce space. Collaborate with clients including AG1, Molekule, Thesis, Rothy's, Glorious Gaming and Stio. Furthermore, work closely with internally with developers, designers & project managers and lead small teams of developer to work on company-owned codebases.",
     highlights: [
-      "Converted designs from Figma and Sketch into accessible, responsive, & interactive UIs",
+      "Converted designs from Figma and Sketch into accessible, responsive & interactive UIs",
       "Audited web performance and implemented changes to significantly improve web vitals",
-      "Routinely made deployments using GitHub Actions, AWS Elastic Beanstalk and CLI tools",
-      "Led teams of 3 to 4 developers to refactor a codebase and to build a new Shopify theme",
+      "Routinely made deployments with GitHub Actions, AWS Elastic Beanstalk & CLI tools",
+      "Led teams of 3 to 4 developers to refactor a codebase and build a new Shopify theme",
+      "Reviewed code written by other developers and provided guidance",
       "Wrote documentation for various codebases and processes",
     ],
     tech: [
