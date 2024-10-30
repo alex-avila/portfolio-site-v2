@@ -11,7 +11,7 @@ function Link({ href, textSize = "text-xs", isExternal, children, ...props }: Li
     <a
       className={
         `${textSize} ` +
-        "text-garden-content-quiet underline transition-colors duration-500 hover:text-garden-accent-2 hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-accent"
+        "text-garden-content-quiet underline transition-colors hover:text-garden-accent-2 hover:decoration-2 focus:decoration-2 focus:outline-none dark:text-forest-content-quiet dark:hover:text-forest-accent"
       }
       href={href}
       target={isExternal ? "_blank" : undefined}
