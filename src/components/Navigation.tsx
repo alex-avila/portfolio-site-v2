@@ -107,18 +107,18 @@ function Navigation({ sections, onToggleTheme }: INavigationProps) {
   return (
     <header
       ref={navigationRef}
-      className="sticky inset-x-0 top-0 z-50 grid w-full grid-cols-[1fr_auto_1fr] justify-start px-4 text-sm md:px-6 lg:px-8"
+      className="max-xs:grid-cols-1 sticky inset-x-0 top-0 z-50 grid w-full grid-cols-[1fr_auto_1fr] justify-start px-4 text-sm md:px-6 lg:px-8"
     >
       <div className="max-sm:hidden" />
 
-      <nav>
+      <nav className="max-xs:mx-auto">
         <NavigationPill>
-          <div className="relative grow basis-full px-4">
+          <div className="relative grow basis-full px-3">
             <div className="flex items-center justify-end">
               {sections.map((section, index) => (
                 <a
                   key={section.id}
-                  className="group relative px-3 py-3 text-garden-content-quiet transition-[color,_font-weight] hover:text-garden-content-loud focus:outline-none aria-[current=true]:border-garden-accent-2 aria-[current=true]:font-medium aria-[current=true]:text-garden-accent-2 dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-[current=true]:text-forest-accent"
+                  className="group relative px-2 py-3 text-garden-content-quiet transition-[color,_font-weight] hover:text-garden-content-loud focus:outline-none aria-[current=true]:border-garden-accent-2 aria-[current=true]:font-medium aria-[current=true]:text-garden-accent-2 dark:text-forest-content dark:hover:text-forest-content-loud dark:aria-[current=true]:text-forest-accent"
                   href={`#${section.id}`}
                   onClick={evt => scrollIntoView(evt, index)}
                   aria-current={sectionsState.prominentSection === section.id}
@@ -132,7 +132,7 @@ function Navigation({ sections, onToggleTheme }: INavigationProps) {
         </NavigationPill>
       </nav>
 
-      <div className="flex justify-end max-sm:col-start-3">
+      <div className="max-xs:hidden flex justify-end max-sm:col-start-3">
         <NavigationPill isButton>
           <button
             type="button"

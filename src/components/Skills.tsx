@@ -1,8 +1,11 @@
 import { IconContext } from "react-icons";
 import {
+  SiHtml5 as HtmlIcon,
+  SiCss3 as CssIcon,
   SiJavascript as JavaScriptIcon,
   SiTypescript as TypeScriptIcon,
   SiVuedotjs as VueIcon,
+  SiNextdotjs as NextIcon,
   SiNuxtdotjs as NuxtIcon,
   SiReact as ReactIcon,
   SiVite as ViteIcon,
@@ -12,8 +15,8 @@ import {
   SiShopify as ShopifyIcon,
   SiNodedotjs as NodeJsIcon,
   SiKoa as KoaIcon,
-  SiExpress as ExpressIcon,
   SiNestjs as NestJsIcon,
+  SiPostgresql as PostgresqlIcon,
   SiGit as GitIcon,
   SiGithubactions as GitHubActionsIcon,
   SiAmazonwebservices as AwsIcon,
@@ -27,8 +30,16 @@ interface Skills {
 
 const skills: Skills[] = [
   {
-    category: "Frontend",
+    category: "Languages",
     skills: [
+      {
+        name: "HTML",
+        icon: <HtmlIcon />,
+      },
+      {
+        name: "CSS",
+        icon: <CssIcon />,
+      },
       {
         name: "JavaScript",
         icon: <JavaScriptIcon />,
@@ -37,6 +48,11 @@ const skills: Skills[] = [
         name: "TypeScript",
         icon: <TypeScriptIcon />,
       },
+    ],
+  },
+  {
+    category: "Frontend",
+    skills: [
       {
         name: "Vue",
         icon: <VueIcon />,
@@ -44,6 +60,12 @@ const skills: Skills[] = [
       {
         name: "React",
         icon: <ReactIcon />,
+      },
+      { name: "Next", icon: <NextIcon /> },
+      { name: "Nuxt", icon: <NuxtIcon /> },
+      {
+        name: "Shopify Development",
+        icon: <ShopifyIcon />,
       },
       {
         name: "Alpine.js",
@@ -75,22 +97,12 @@ const skills: Skills[] = [
         icon: <KoaIcon />,
       },
       {
-        name: "Express",
-        icon: <ExpressIcon />,
-      },
-      {
         name: "NestJS",
         icon: <NestJsIcon />,
       },
-    ],
-  },
-  {
-    category: "Fullstack",
-    skills: [
-      { name: "Nuxt", icon: <NuxtIcon /> },
       {
-        name: "Shopify Development (Liquid, Shopify APIs, etc.)",
-        icon: <ShopifyIcon />,
+        name: "PostgreSQL",
+        icon: <PostgresqlIcon />,
       },
     ],
   },

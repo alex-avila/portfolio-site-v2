@@ -42,6 +42,9 @@ export default {
   darkMode: "selector",
   theme: {
     extend: {
+      screens: {
+        xs: "375px",
+      },
       fontFamily: {
         sans: ["Zen Kaku Gothic New", defaultSansFonts],
       },
