@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, memo } from "react";
 import { IconContext } from "react-icons";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { IoCheckmark, IoCopyOutline } from "react-icons/io5";
 import Link from "./Link";
 import useEphemeralState from "../hooks/useEphemeralState";
