@@ -2,6 +2,7 @@ import Navigation from "./components/Navigation";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
+import Projects from "./components/Projects";
 import Footer from "./components/Footer";
 import { SectionsProvider, Section } from "./components/SectionsContext";
 
@@ -38,6 +39,11 @@ const sections = [
     id: "experience",
     name: "Experience",
     component: <Experience />,
+  },
+  {
+    id: "projects",
+    name: "Projects",
+    component: <Projects />,
   },
 ];
 
