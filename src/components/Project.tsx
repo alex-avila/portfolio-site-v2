@@ -117,7 +117,7 @@ function Project({ title, image, description, skills, sourceCodeLink, link }: Pr
             {shineOverlayElement}
             {link && <span className="sr-only">{title}</span>}
           </ShineOverlayComponent>
-          <img className="absolute inset-0 size-full object-contain" src={image} />
+          <img className="absolute inset-0 size-full object-contain" src={image} loading="lazy" alt="" />
         </motion.div>
         <div>
           <div className="max-sm:hidden">
