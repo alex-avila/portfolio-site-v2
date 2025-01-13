@@ -29,7 +29,7 @@ function Footer({ onToggleTheme }: { onToggleTheme: () => void }) {
       <div className="border-t border-garden-content-quiet-2 py-6 dark:border-forest-content-quiet-2">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <p className="text-xs text-garden-content dark:text-forest-content">© 2024 Alex Avila</p>
+            <p className="text-xs text-garden-content dark:text-forest-content">© 2025 Alex Avila</p>
           </div>
 
           <ul className="flex flex-wrap items-center">
